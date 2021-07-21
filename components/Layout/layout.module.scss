@@ -1,0 +1,16 @@
+.layout {
+  padding: 1.5% 5%;
+}
+
+.section {
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+  justify-content: center;
+}
+
+.layoutLeftRight {
+  display: flex;
+  align-items: center;
+}

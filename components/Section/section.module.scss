@@ -1,0 +1,18 @@
+.section {
+  width: 100%;
+  height: 25vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 0.5px solid #00000080;
+
+  &:first-of-type{
+    background-color: rgb(139, 139, 228);
+  }
+  &:nth-of-type(2){
+    background-color: rgb(102, 196, 157);
+  }
+  &:nth-of-type(3){
+    background-color: rgb(211, 133, 207);
+  }
+}
