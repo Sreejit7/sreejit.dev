@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./navbar.module.scss";
 import { navbarItems } from "../../data/navItems";
-import { useGlobalContext } from "../../context/useGlobalContext";
+import { useGlobalContext } from "../../../context/useGlobalContext";
 
 const Navbar = () => {
   const { isSidebarOpen, setSidebar } = useGlobalContext();

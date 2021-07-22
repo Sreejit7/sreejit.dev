@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import { useState } from 'react'
-import Navbar from '../components/Navbar'
-import Introduction from '../sections/Introduction'
+import Navbar from '../src/components/Navbar'
+import Introduction from '../src/sections/Introduction'
 import { GlobalContext } from '../context/useGlobalContext';
-import Sidebar from '../components/Sidebar';
+import Sidebar from '../src/components/Sidebar';
+import About from '../src/sections/About';
 
 
 export default function Home() {
@@ -23,6 +24,7 @@ export default function Home() {
         <Navbar />
         <Sidebar />
         <Introduction />
+        <About />
       </GlobalContext.Provider>
     </>
   )
