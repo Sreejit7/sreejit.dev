@@ -1,0 +1,25 @@
+@import "../../styles/scss-variables";
+.skills {
+  &-title {
+    margin-bottom: 2vh;
+  }
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2vh 5vw;
+    margin-top: 4vh;
+  }
+  &-text {
+    width: 80%;
+    line-height: 45px;
+  }
+  &-icon {
+    font-size: 6.5rem;
+    transition: 0.2s ease-out;
+    padding: 5px;
+    &:hover {
+      transform: scale(1.2) rotate(-6deg);
+      transition: 0.3s ease;
+    }
+  }
+}

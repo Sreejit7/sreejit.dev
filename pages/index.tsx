@@ -1,16 +1,18 @@
 import Head from "next/head";
-import { useRef, useState } from "react";
+import { MutableRefObject, useRef, useState } from "react";
 import Navbar from "../src/components/Navbar";
 import Introduction from "../src/sections/Introduction";
 import { GlobalContext } from "../src/context/useGlobalContext";
 import Sidebar from "../src/components/Sidebar";
 import About from "../src/sections/About";
 import { navItemTitles } from "../src/data/navItems";
+import Skills from "../src/sections/Skills";
 
 export default function Home() {
   const [sidebar, setSidebar] = useState(false);
   const [visibleSection, setVisibleSection] = useState("");
-  const aboutRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef() as MutableRefObject<HTMLElement>;
+  const skillsRef = useRef() as MutableRefObject<HTMLElement>;
   const sectionRefs = [{ section: navItemTitles.About, ref: aboutRef }];
   return (
     <>
@@ -41,6 +43,7 @@ export default function Home() {
         <Sidebar />
         <Introduction />
         <About ref={aboutRef} />
+        <Skills ref={skillsRef} />
       </GlobalContext.Provider>
     </>
   );
