@@ -1,16 +1,28 @@
 @import "../../styles/scss-variables";
 
 .intro {
+
   &-title {
+    margin-top: 18vh;
     font-size: $fs-title; 
-    // background: rgb(255,209,44);
     background: -moz-linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
     background: -webkit-linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
     background: linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
     background-size: 200% 200%;
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradient 15s ease infinite;
+
+    @media only screen and (max-width: 768px) {
+      margin-top: 12.5vh;
+    }
+    @media only screen and (max-width: 425px) {
+      margin-top: 5vh;
+    }
+    @media only screen and (max-width: 325px) {
+      margin-top: 0;
+    }
   }
   &-subtitle {
     font-size: $fs-title2;
@@ -18,6 +30,9 @@
   &-text {
     font-size: $fs-title3;
     line-height: 30px;
+    @media only screen and (max-width: 325px) {
+      font-size: $fs-body;
+    }
   }
   &-job {
     color: $primary-color;
