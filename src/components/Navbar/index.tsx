@@ -3,23 +3,28 @@ import Image from "next/image";
 import styles from "./navbar.module.scss";
 import { navbarItems } from "../../data/navItems";
 import { useGlobalContext } from "../../context/useGlobalContext";
-import { RefObject, useRef } from "react";
+import { MutableRefObject, useRef } from "react";
 import { scrollToSection } from "../../utils/scrollUtils";
+import useScroll from "../../hooks/useScroll";
 
 type NavbarProps = {
   refs: {
     section: string;
-    ref: RefObject<HTMLElement>
+    ref: MutableRefObject<HTMLElement>
   }[]
 }
 const Navbar = ({ refs }: NavbarProps) => {
   const { isSidebarOpen, setSidebar } = useGlobalContext();
-  const headerRef = useRef<HTMLElement>(null);
+
+  const headerRef = useRef() as MutableRefObject<HTMLElement>;
+
+  const { visibleSection } = useScroll({ refs,  headerHeight: headerRef.current?.offsetHeight });
 
   const handleScrollToSection = (sectionTitle: string) => {
     const section = refs.find(({ section }) => section === sectionTitle);
     scrollToSection(section?.ref.current?.offsetTop, headerRef.current?.offsetHeight);
   }
+
   return (
     <header className={styles.navbar} ref={headerRef}>
       <h3 className={styles["navbar-text"]}>Hey, I’m Sreejit.</h3>

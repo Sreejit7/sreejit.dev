@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useRef, useState } from "react";
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 import Navbar from "../src/components/Navbar";
 import Introduction from "../src/sections/Introduction";
 import { GlobalContext } from "../src/context/useGlobalContext";
@@ -10,8 +10,9 @@ import { navItemTitles } from "../src/data/navItems";
 export default function Home() {
   const [sidebar, setSidebar] = useState(false);
   const [visibleSection, setVisibleSection] = useState("");
-  const aboutRef = useRef<HTMLElement>(null);
+  const aboutRef = useRef () as MutableRefObject<HTMLElement>;
   const sectionRefs = [{ section: navItemTitles.About, ref: aboutRef }];
+
   return (
     <>
       <GlobalContext.Provider
