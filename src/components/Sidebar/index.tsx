@@ -1,6 +1,6 @@
 import styles from './sidebar.module.scss';
 import cn from 'classnames';
-import { useGlobalContext } from '../../../context/useGlobalContext';
+import { useGlobalContext } from '../../context/useGlobalContext';
 import { navbarItems } from '../../data/navItems';
 import Link from 'next/link';
 

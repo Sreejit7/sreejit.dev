@@ -1,18 +1,25 @@
+export enum navItemTitles {
+  About = "About",
+  Blog = "Blog",
+  Projects = "Projects",
+  Contact = "Contact"
+}
+
 export const navbarItems = [
   {
-    title: "Blog",
+    title: navItemTitles.Blog,
     link: "#blog",
   },
   {
-    title: "About",
+    title: navItemTitles.About,
     link: "#about",
   },
   {
-    title: "Projects",
+    title: navItemTitles.Projects,
     link: "#projects",
   },
   {
-    title: "Contact",
+    title: navItemTitles.Contact,
     link: "#contact",
   },
 ];

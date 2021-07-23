@@ -3,9 +3,9 @@ import styles from "./about.module.scss";
 import cn from "classnames";
 import Image from "next/image";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
-import { useMemo } from "react";
+import React, { useMemo } from "react";
 
-const About = () => {
+const About = React.forwardRef<HTMLElement>((props, ref) => {
   const {
     dimensions: { width },
   } = useWindowDimensions();
@@ -13,9 +13,10 @@ const About = () => {
   const isMobileView = useMemo(() => {
     return width <= 768;
   }, [width]);
+
   return (
     <Layout cName="section">
-      <section className={cn(styles.about)}>
+      <section ref={ref} className={cn(styles.about)}>
         <section className={styles["about-left"]}>
           <h1 className="section-title">About Me</h1>
           <span className={styles["about-text"]}>
@@ -58,6 +59,8 @@ const About = () => {
       </section>
     </Layout>
   );
-};
+});
+
+About.displayName = 'About';
 
 export default About;
