@@ -6,7 +6,7 @@
   &-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 2vh 5vw;
+    gap: 3.5vh 5vw;
     margin-top: 4vh;
   }
   &-text {
@@ -14,12 +14,51 @@
     line-height: 45px;
   }
   &-icon {
-    font-size: 6.5rem;
     transition: 0.2s ease-out;
     padding: 5px;
+    svg {
+      font-size: 6rem;
+      &:hover {
+        transform: scale(1.2) rotate(-6deg);
+        transition: 0.3s ease;
+      }
+    }
     &:hover {
       transform: scale(1.2) rotate(-6deg);
       transition: 0.3s ease;
+    }
+  }
+}
+
+@media only screen and (max-width: 990px) {
+  .skills {
+    &-text {
+      width: 85%;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .skills {
+    &-text {
+      width: 90%;
+    }
+    &-icon {
+      svg {
+        font-size: 4rem;
+      }
+    }
+    &-list {
+      padding: 0 3vw;
+      justify-content: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .skills {
+    &-text {
+      width: 95%;
     }
   }
 }

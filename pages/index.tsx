@@ -13,7 +13,10 @@ export default function Home() {
   const [visibleSection, setVisibleSection] = useState("");
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
   const skillsRef = useRef() as MutableRefObject<HTMLElement>;
-  const sectionRefs = [{ section: navItemTitles.About, ref: aboutRef }];
+  const sectionRefs = [
+    { section: navItemTitles.About, ref: aboutRef },
+    { section: navItemTitles.Skills, ref: skillsRef }
+  ];
   return (
     <>
       <GlobalContext.Provider
@@ -40,7 +43,7 @@ export default function Home() {
           />
         </Head>
         <Navbar refs={sectionRefs} />
-        <Sidebar />
+        <Sidebar refs={sectionRefs} />
         <Introduction />
         <About ref={aboutRef} />
         <Skills ref={skillsRef} />
