@@ -4,6 +4,8 @@ import {
   SiTypescript,
   SiFirebase,
   SiGit,
+  SiMysql,
+  SiJava
 } from "react-icons/si";
 import { FaSass } from "react-icons/fa";
 export const skills = [
@@ -30,6 +32,16 @@ export const skills = [
   {
     title: "Firebase",
     icon: <SiFirebase />,
+    color: "#fff",
+  },
+  {
+    title: "Java",
+    icon: <SiJava />,
+    color: "#fff",
+  },
+  {
+    title: "SQL",
+    icon: <SiMysql />,
     color: "#fff",
   },
   {
