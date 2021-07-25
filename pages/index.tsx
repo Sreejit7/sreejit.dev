@@ -11,11 +11,12 @@ import Skills from "../src/sections/Skills";
 export default function Home() {
   const [sidebar, setSidebar] = useState(false);
   const [visibleSection, setVisibleSection] = useState("");
+  const headerRef = useRef() as MutableRefObject<HTMLElement>;
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
   const skillsRef = useRef() as MutableRefObject<HTMLElement>;
   const sectionRefs = [
     { section: navItemTitles.About, ref: aboutRef },
-    { section: navItemTitles.Skills, ref: skillsRef }
+    { section: navItemTitles.Skills, ref: skillsRef },
   ];
   return (
     <>
@@ -42,9 +43,9 @@ export default function Home() {
             rel="stylesheet"
           />
         </Head>
-        <Navbar refs={sectionRefs} />
+        <Navbar refs={sectionRefs} ref={headerRef} />
         <Sidebar refs={sectionRefs} />
-        <Introduction />
+        <Introduction aboutRef={aboutRef} headerRef={headerRef} />
         <About ref={aboutRef} />
         <Skills ref={skillsRef} />
       </GlobalContext.Provider>

@@ -3,8 +3,9 @@ import Image from "next/image";
 import styles from "./navbar.module.scss";
 import { navbarItems } from "../../data/navItems";
 import { useGlobalContext } from "../../context/useGlobalContext";
-import { MutableRefObject, useRef } from "react";
+import { MutableRefObject, forwardRef } from "react";
 import { scrollToSection } from "../../utils/scrollUtils";
+
 
 export type NavbarProps = {
   refs: {
@@ -12,16 +13,14 @@ export type NavbarProps = {
     ref: MutableRefObject<HTMLElement>
   }[]
 }
-const Navbar = ({ refs }: NavbarProps) => {
+const Navbar = forwardRef<HTMLElement, NavbarProps>(({ refs }, ref) => {
   const { isSidebarOpen, setSidebar } = useGlobalContext();
-  const headerRef = useRef() as MutableRefObject<HTMLElement>;
-
   const handleScrollToSection = (sectionTitle: string) => {
     const section = refs.find(({ section }) => section === sectionTitle);
-    scrollToSection(section?.ref.current?.offsetTop, headerRef.current?.offsetHeight);
+    scrollToSection(section?.ref.current?.offsetTop, (ref as MutableRefObject<HTMLElement>).current?.offsetHeight);
   }
   return (
-    <header className={styles.navbar} ref={headerRef}>
+    <header className={styles.navbar} ref={ref}>
       <h3 className={styles["navbar-text"]}>Hey, I’m Sreejit.</h3>
       <nav className={styles["navbar-list"]}>
         {navbarItems.map(({ link, title }, index) => {
@@ -54,6 +53,8 @@ const Navbar = ({ refs }: NavbarProps) => {
       )}
     </header>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';
 
 export default Navbar;
