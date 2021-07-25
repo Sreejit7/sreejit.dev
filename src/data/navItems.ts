@@ -2,7 +2,8 @@ export enum navItemTitles {
   About = "About",
   Blog = "Blog",
   Projects = "Projects",
-  Contact = "Contact"
+  Contact = "Contact",
+  Skills = "Skills"
 }
 
 export const navbarItems = [
@@ -13,6 +14,10 @@ export const navbarItems = [
   {
     title: navItemTitles.About,
     link: "#about",
+  },
+  {
+    title: navItemTitles.Skills,
+    link: "#skills",
   },
   {
     title: navItemTitles.Projects,

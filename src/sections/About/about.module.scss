@@ -1,9 +1,6 @@
 @import "../../styles/scss-variables";
 .about {
   display: flex;
-  font-size: 1.5rem;
-  line-height: 40px;
-  text-align: justify;
 
   &-left {
     display: flex;
@@ -22,10 +19,6 @@
 
   &-text {
     width: 90%;
-    &-highlight {
-      color: $primary-color-light;
-      font-weight: $medium;
-    }
   }
 
   &-img {
@@ -48,7 +41,6 @@
 @media only screen and (max-width: 768px) {
   .about {
     flex-direction: column;
-    font-size: $fs-body;
     &-right {
       align-items: start;
     }
