@@ -1,0 +1,150 @@
+@import "../../styles/scss-variables";
+.projects {
+  &-list{
+    display: flex;
+    flex-direction: column;
+    gap: 7.5vh;
+  }
+
+  &-view-all {
+    margin-top: 10vh;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: $fs-title3;
+    font-weight: $semi-bold;
+    gap: 1vw;
+    transition: 0.2s ease-in-out;
+    position: relative;
+    svg {
+      font-size: 2rem;
+    }
+    &:hover:after {
+      width: 30%;
+      left: 0;
+      background: #fff;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      width: 0; height: 3px;
+      display: block;
+      margin-top: 5px;
+      right: 0;
+      background: #fff;
+      transition: width .2s ease;
+      -webkit-transition: width .2s ease;
+    }
+  }
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  width: 90%;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-nav {
+      display: flex;
+      gap: 2vw;
+    }
+  }
+  &-link {
+    cursor: pointer;
+    margin-left: 2vw;
+    svg {
+      font-size: 1.5rem;
+      transition: 0.15s ease-out;
+      &:hover {
+        color: $primary-color-light;
+        transition: 0.2s ease-in;
+      }
+    }
+  }
+  &-title {
+    font-size: $fs-title3;
+    font-weight: $semi-bold;
+    padding: 5px 7px;
+    border-radius: 2px;
+      box-shadow: 0px 0px 2px $white-text-transparent,
+                2px 2px 5px $white-text-transparent,
+                4px 4px 8px $white-text-transparent;
+    &-odd {
+      box-shadow: 0px 0px 2px $primary-color-light,
+                2px 2px 5px $primary-color-light,
+                4px 4px 8px $primary-color-light;
+    }
+  }
+  &-body {
+    display: flex;
+    // background-color: $primary-color-light;
+    border-radius: $card-radius;
+    padding: 2vh 2vw;
+    font-size: $fs-title3;
+    color: $white-text-transparent;
+    font-weight: $bold;
+    line-height: 36px;
+    margin-left: 2vw;
+    gap: 5vw;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      color: $primary-color-light;
+      transition: 0.3s ease-in;
+      // transform: translate3d(-5px, -5px, 6rem);
+      // box-shadow: 2px 2px 1px $white-text;
+    }
+  }
+  &-odd {
+    flex-direction: row-reverse;
+    color: $primary-color-transparent;
+    &:hover {
+      color: $white-text;
+      // transform: translate3d(5px, -5px, 6rem);
+      // box-shadow: -2px 2px 1px $white-text;
+    }
+  }
+
+  &-image {
+    display: flex;
+    // flex: 0.4;
+    z-index: 5;
+    border-radius: 3px;
+  }
+
+  &-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    text-align: justify;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &-stack {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-around;
+    font-size: $fs-btn;
+    font-weight: $semi-bold;
+    color: $white-text;
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+      svg {
+        font-size: 1rem;
+        cursor: pointer;
+        &:hover {
+          transition: 0.5s ease-in-out;
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
