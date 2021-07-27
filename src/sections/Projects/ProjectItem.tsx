@@ -4,6 +4,7 @@ import Image from "next/image";
 import cn from "classnames"
 import { VscLinkExternal, VscGithub } from "react-icons/vsc";
 import { TiPointOfInterest } from "react-icons/ti";
+import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 
 type projectProps = {
@@ -12,12 +13,12 @@ type projectProps = {
 };
 const ProjectItem = ({ project, odd }: projectProps) => {
   const { title, desc, techStack, imageUrl, githubLink, url } = project;
-
+  const { isMobileView } = useWindowDimensions();
   return (
     <section className={cn(styles.project)}>
       <header className={styles["project-header"]}>
         <h2 className={cn(styles["project-title"], odd && styles["project-title-odd"] )}>{title}</h2>
-        <nav className={styles["peoject-header-nav"]}>
+        <nav className={styles["project-header-nav"]}>
           <a
             title="Source Code"
             className={styles["project-link"]}
@@ -42,9 +43,8 @@ const ProjectItem = ({ project, odd }: projectProps) => {
         <Image
           alt={title}
           src={imageUrl}
-          layout="intrinsic"
-          height={300}
-          width={480}
+          height={isMobileView?200:300}
+          width={isMobileView?360:480}
           className={styles["project-image"]}
         />
         <section className={styles["project-desc"]}>

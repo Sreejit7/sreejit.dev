@@ -31,7 +31,7 @@ export const projects: ProjectItemInterface[] = [
     githubLink: "https://github.com/Sreejit7/Ecommerce-website",
     url: "https://github.com/Sreejit7/Ecommerce-website",
     desc: `Homemade is an e-commerce platform for all homemade goods - from delicious foods to aesthetic artworks!
-          You can search for every homemade thing you crave for, od become a merchant and sell your homemade goods as well.`,
+          You can search for every homemade thing you crave for, and sell your homemade goods as well.`,
     techStack: ["React", "Firebase", "Stripe Payments API"],
   },
 ];

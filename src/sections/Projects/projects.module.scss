@@ -14,27 +14,17 @@
     justify-content: center;
     font-size: $fs-title3;
     font-weight: $semi-bold;
-    gap: 1vw;
+    gap: 2vw;
     transition: 0.2s ease-in-out;
     position: relative;
     svg {
       font-size: 2rem;
     }
-    &:hover:after {
-      width: 30%;
-      left: 0;
-      background: #fff;
+    @media only screen and (max-width: 768px) {
+      margin-top: 5vh;
     }
-    &::after {
-      content: '';
-      position: absolute;
-      width: 0; height: 3px;
-      display: block;
-      margin-top: 5px;
-      right: 0;
-      background: #fff;
-      transition: width .2s ease;
-      -webkit-transition: width .2s ease;
+    @media only screen and (max-width: 576px) {
+      margin-top: 2vh;
     }
   }
 }
@@ -50,12 +40,12 @@
     align-items: center;
     &-nav {
       display: flex;
-      gap: 2vw;
+      gap: 3vw;
     }
   }
   &-link {
     cursor: pointer;
-    margin-left: 2vw;
+    
     svg {
       font-size: 1.5rem;
       transition: 0.15s ease-out;
@@ -111,8 +101,6 @@
 
   &-image {
     display: flex;
-    // flex: 0.4;
-    z-index: 5;
     border-radius: 3px;
   }
 
@@ -133,6 +121,7 @@
     font-size: $fs-btn;
     font-weight: $semi-bold;
     color: $white-text;
+    gap: 1vw;
     &-item {
       display: flex;
       align-items: center;
@@ -146,5 +135,67 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .project {
+    width: 100%;
+
+    &-body {
+      margin-left: 0;
+      font-size: $fs-body;
+      line-height: 28px;
+      font-weight: $semi-bold;
+      padding: 2vh 0;
+    }
+    &-stack {
+      font-size: $fs-small;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .project {
+    &-body {
+      font-size: $fs-btn;
+      font-weight: $medium;
+      gap: 3vw;
+    }
+    &-desc {
+      gap: 2vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .projects {
+    &-list {
+      align-items: center;
+    }
+  }
+  .project {
+    width: 85%;
+    &-body {
+      flex-direction: column;
+      font-size: $fs-btn;
+      font-weight: $medium;
+      gap: 4vh 3vw;
+    }
+    &-desc {
+      gap: 4vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .project {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .project {
+    width: 95%;
   }
 }
