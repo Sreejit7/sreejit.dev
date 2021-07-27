@@ -16,10 +16,12 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
             <ProjectItem key={index} project={project} odd={index % 2 === 1} />
           ))}
         </ul>
-        <a className={styles["projects-view-all"]} target="_blank" rel="noreferrer" href="https://github.com/Sreejit7">
-          View other projects
-          <VscGithub />
-        </a>
+        <footer className={styles["projects-footer"]}>
+          <a className={styles["projects-view-all"]} target="_blank" rel="noreferrer" href="https://github.com/Sreejit7">
+            View other projects
+            <VscGithub />
+          </a>
+        </footer>
       </section>
     </Layout>
   );

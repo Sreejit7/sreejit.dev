@@ -1,24 +1,52 @@
 @import "../../styles/scss-variables";
 .projects {
-  &-list{
+  &-list {
     display: flex;
     flex-direction: column;
     gap: 7.5vh;
   }
 
+  &-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
   &-view-all {
+    position: relative;
     margin-top: 10vh;
     display: flex;
-    width: 100%;
+    width: fit-content;
     align-items: center;
-    justify-content: center;
     font-size: $fs-title3;
     font-weight: $semi-bold;
     gap: 2vw;
-    transition: 0.2s ease-in-out;
+    transition: color ease 0.2s;
     position: relative;
+
     svg {
       font-size: 2rem;
+    }
+
+    &:hover {
+      color: $primary-color-light;
+
+      ::after {
+        height: 100%;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      width: 100%;
+      height: 5%;
+      background-color: $primary-color-light;
+      border-radius: 2px;
+      bottom: 0;
+      left: 0;
+      transition: all ease 0.3s;
     }
     @media only screen and (max-width: 768px) {
       margin-top: 5vh;
@@ -38,14 +66,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     &-nav {
       display: flex;
       gap: 3vw;
     }
   }
+
   &-link {
     cursor: pointer;
-    
+
     svg {
       font-size: 1.5rem;
       transition: 0.15s ease-out;
@@ -55,20 +85,20 @@
       }
     }
   }
+
   &-title {
     font-size: $fs-title3;
     font-weight: $semi-bold;
     padding: 5px 7px;
     border-radius: 2px;
-      box-shadow: 0px 0px 2px $white-text-transparent,
-                2px 2px 5px $white-text-transparent,
-                4px 4px 8px $white-text-transparent;
+    box-shadow: 0px 0px 2px $white-text-transparent,
+      2px 2px 5px $white-text-transparent, 4px 4px 8px $white-text-transparent;
     &-odd {
       box-shadow: 0px 0px 2px $primary-color-light,
-                2px 2px 5px $primary-color-light,
-                4px 4px 8px $primary-color-light;
+        2px 2px 5px $primary-color-light, 4px 4px 8px $primary-color-light;
     }
   }
+
   &-body {
     display: flex;
     // background-color: $primary-color-light;
@@ -89,6 +119,7 @@
       // box-shadow: 2px 2px 1px $white-text;
     }
   }
+
   &-odd {
     flex-direction: row-reverse;
     color: $primary-color-transparent;
