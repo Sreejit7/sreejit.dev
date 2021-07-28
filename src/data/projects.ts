@@ -22,7 +22,7 @@ export const projects: ProjectItemInterface[] = [
     githubLink: "https://github.com/Sreejit7/COVID-care",
     url: "https://covid-19care.web.app/",
     desc: `COVID-CARE is a website designed for tracking the COVID-19 pandemic data 
-          like deaths, cases & recoveries, upcoming vaccine informtion & top headlines related to COVID-19.`,
+          like deaths, cases & recoveries, upcoming vaccine information & top headlines related to COVID-19.`,
     techStack: ["React", "Chart.js", "disease.sh API", "GNews API"],
   },
   {
