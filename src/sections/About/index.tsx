@@ -13,7 +13,7 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
     <Layout cName="section">
       <section ref={ref} className={cn(styles.about)}>
         <section className={styles["about-left"]}>
-          <h1 className="section-title">About Me</h1>
+          <h1 className={cn("section-title", styles["about-title"])}>About Me</h1>
           <span
             className={cn(styles["about-text"], sectionStyles["section-text"])}
           >
