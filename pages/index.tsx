@@ -8,6 +8,7 @@ import About from "../src/sections/About";
 import { navItemTitles } from "../src/data/navItems";
 import Skills from "../src/sections/Skills";
 import Projects from "../src/sections/Projects";
+import Contact from "../src/sections/Contact";
 
 export default function Home() {
   const [sidebar, setSidebar] = useState(false);
@@ -16,10 +17,12 @@ export default function Home() {
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
   const skillsRef = useRef() as MutableRefObject<HTMLElement>;
   const projectsRef = useRef() as MutableRefObject<HTMLElement>;
+  const contactRef = useRef() as MutableRefObject<HTMLElement>;
   const sectionRefs = [
     { section: navItemTitles.About, ref: aboutRef },
     { section: navItemTitles.Skills, ref: skillsRef },
     { section: navItemTitles.Projects, ref: projectsRef },
+    { section: navItemTitles.Contact, ref: contactRef }
   ];
   return (
     <>
@@ -52,6 +55,7 @@ export default function Home() {
         <About ref={aboutRef} />
         <Skills ref={skillsRef} />
         <Projects ref={projectsRef} />
+        <Contact ref={contactRef} />
       </GlobalContext.Provider>
     </>
   );

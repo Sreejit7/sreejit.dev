@@ -34,6 +34,8 @@ li {
   font-size: 1.15rem;
   padding: 0.7rem 1.2rem;
   border: 0;
+  transition: all 0.25s ease;
+  font-weight: 500;
 
   &-sm {
     width: 150px;
@@ -51,7 +53,7 @@ li {
   &-primary {
     background: #7569ff;
     color: #fff;
-
+  
     &:hover {
       transition: 0.35s;
       box-shadow: 3px 3px 1px #fff;
