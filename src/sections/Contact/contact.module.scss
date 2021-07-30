@@ -1,0 +1,73 @@
+@import "../../styles/scss-variables";
+.contact {
+  &-title {
+    margin-top: 10vh;
+  }
+  &-subtitle {
+    font-size: $fs-title2;
+    margin-top: 5vh;
+  }
+  &-socials {
+    display: flex;
+    gap: 6vw;
+  }
+  &-link {
+    svg {
+      font-size: 2rem;
+      transition: 0.2s all ease;
+      color: $white-text;
+      &:hover {
+        transition: 0.3s all ease;
+        color: $primary-color-light !important;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .contact {
+    &-title {
+      margin-top: 7vh;
+    }
+    &-subtitle {
+      font-size: $fs-title3;
+    }
+    &-socials {
+      gap: 10vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .contact {
+    &-title {
+      margin-top: 4vh;
+    }
+    &-subtitle {
+      font-size: $fs-title3;
+      margin-top: 2vh;
+    }
+    &-socials {
+      gap: 15vw;
+      margin-left: 5vw;
+    }
+    &-link {
+      svg {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 350px) {
+  .contact {
+    &-title {
+      margin-top: 1vh;
+    }
+    &-socials {
+      gap: 18vw;
+    }
+  }
+}

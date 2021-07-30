@@ -1,0 +1,232 @@
+@import "../../styles/scss-variables";
+.projects {
+  &-list {
+    display: flex;
+    flex-direction: column;
+    gap: 7.5vh;
+  }
+
+  &-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &-view-all {
+    position: relative;
+    margin: 5vh;
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    font-size: $fs-title3;
+    font-weight: $semi-bold;
+    gap: 2vw;
+    transition: color ease 0.2s;
+    position: relative;
+
+    svg {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      color: $primary-color-light;
+
+      ::after {
+        height: 100%;
+      }
+    }
+
+    &::after {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      width: 100%;
+      height: 5%;
+      background-color: $primary-color-light;
+      border-radius: 2px;
+      bottom: 0;
+      left: 0;
+      transition: all ease 0.3s;
+    }
+    @media only screen and (max-width: 768px) {
+      margin-top: 5vh;
+    }
+    @media only screen and (max-width: 576px) {
+      margin-top: 2vh;
+    }
+  }
+}
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  width: 90%;
+
+  &-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &-nav {
+      display: flex;
+      gap: 3vw;
+    }
+  }
+
+  &-link {
+    cursor: pointer;
+
+    svg {
+      font-size: 1.5rem;
+      transition: 0.15s ease-out;
+      &:hover {
+        color: $primary-color-light;
+        transition: 0.2s ease-in;
+      }
+    }
+  }
+
+  &-title {
+    font-size: $fs-title3;
+    font-weight: $semi-bold;
+    padding: 5px 7px;
+    border-radius: 2px;
+    box-shadow: 0px 0px 2px $white-text-transparent,
+      2px 2px 5px $white-text-transparent, 4px 4px 8px $white-text-transparent;
+    &-odd {
+      box-shadow: 0px 0px 2px $primary-color-light,
+        2px 2px 5px $primary-color-light, 4px 4px 8px $primary-color-light;
+    }
+  }
+
+  &-body {
+    display: flex;
+    // background-color: $primary-color-light;
+    border-radius: $card-radius;
+    padding: 2vh 2vw;
+    font-size: $fs-title3;
+    color: $white-text-transparent;
+    font-weight: $bold;
+    line-height: 36px;
+    margin-left: 2vw;
+    gap: 5vw;
+    transition: 0.2s ease-out;
+
+    &:hover {
+      color: $primary-color-light;
+      transition: 0.3s ease-in;
+      // transform: translate3d(-5px, -5px, 6rem);
+      // box-shadow: 2px 2px 1px $white-text;
+    }
+  }
+
+  &-odd {
+    flex-direction: row-reverse;
+    color: $primary-color-transparent;
+    &:hover {
+      color: $white-text;
+      // transform: translate3d(5px, -5px, 6rem);
+      // box-shadow: -2px 2px 1px $white-text;
+    }
+  }
+
+  &-image {
+    display: flex;
+    border-radius: 3px;
+  }
+
+  &-desc {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+    text-align: justify;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  &-stack {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-around;
+    font-size: $fs-btn;
+    font-weight: $semi-bold;
+    color: $white-text;
+    gap: 1vw;
+    &-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5vw;
+      svg {
+        font-size: 1rem;
+        cursor: pointer;
+        &:hover {
+          transition: 0.5s ease-in-out;
+          transform: rotate(360deg);
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .project {
+    width: 100%;
+
+    &-body {
+      margin-left: 0;
+      font-size: $fs-body;
+      line-height: 28px;
+      font-weight: $semi-bold;
+      padding: 2vh 0;
+    }
+    &-stack {
+      font-size: $fs-small;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .project {
+    &-body {
+      font-size: $fs-btn;
+      font-weight: $medium;
+      gap: 3vw;
+    }
+    &-desc {
+      gap: 2vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .projects {
+    &-list {
+      align-items: center;
+    }
+  }
+  .project {
+    width: 85%;
+    &-body {
+      flex-direction: column;
+      font-size: $fs-btn;
+      font-weight: $medium;
+      gap: 4vh 3vw;
+    }
+    &-desc {
+      gap: 4vh;
+    }
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .project {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .project {
+    width: 95%;
+  }
+}
