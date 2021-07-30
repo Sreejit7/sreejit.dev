@@ -14,6 +14,7 @@ export default function Home() {
   const [sidebar, setSidebar] = useState(false);
   const [visibleSection, setVisibleSection] = useState("");
   const headerRef = useRef() as MutableRefObject<HTMLElement>;
+  const introHeadingRef = useRef() as MutableRefObject<HTMLHeadingElement>; 
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
   const skillsRef = useRef() as MutableRefObject<HTMLElement>;
   const projectsRef = useRef() as MutableRefObject<HTMLElement>;
@@ -51,7 +52,7 @@ export default function Home() {
         </Head>
         <Navbar refs={sectionRefs} ref={headerRef} />
         <Sidebar refs={sectionRefs} />
-        <Introduction aboutRef={aboutRef} headerRef={headerRef} />
+        <Introduction ref={introHeadingRef} aboutRef={aboutRef} headerRef={headerRef} />
         <About ref={aboutRef} />
         <Skills ref={skillsRef} />
         <Projects ref={projectsRef} />
