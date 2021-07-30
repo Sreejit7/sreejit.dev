@@ -1,17 +1,3 @@
-@import "../styles/scss-variables";
-.section-text {
-  font-size: 1.5rem;
-  line-height: 40px;
-  text-align: justify;
-  @media only screen and (max-width: 768px) {
-    font-size: $fs-body;
-  }
-  &-highlight {
-    color: $primary-color-light;
-    font-weight: $medium;
-  }
-}
-
 .sectionLeft {
   display: flex;
   align-items: center;

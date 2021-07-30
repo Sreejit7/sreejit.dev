@@ -19,6 +19,10 @@
 
   &-text {
     width: 90%;
+    &-highlight {
+      color: $primary-color-light;
+      font-weight: $medium;
+    }
   }
 
   &-img {
@@ -41,6 +45,7 @@
 @media only screen and (max-width: 768px) {
   .about {
     flex-direction: column;
+    font-size: $fs-body;
     &-right {
       align-items: start;
     }
