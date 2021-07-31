@@ -10,6 +10,7 @@ import Skills from "../src/sections/Skills";
 import Projects from "../src/sections/Projects";
 import Contact from "../src/sections/Contact";
 import { IntroHeading } from "../src/data/sections";
+import Footer from "../src/components/Footer";
 
 export default function Home() {
   const [sidebar, setSidebar] = useState(false);
@@ -59,6 +60,7 @@ export default function Home() {
         <Skills ref={skillsRef} />
         <Projects ref={projectsRef} />
         <Contact ref={contactRef} />
+        <Footer />
       </GlobalContext.Provider>
     </>
   );
