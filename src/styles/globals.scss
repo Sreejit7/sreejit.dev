@@ -74,3 +74,26 @@ li {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e8e8e8;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #887ef8;
+  border-radius: 5px;
+  transition: all ease 0.2s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #7569ff;
+}

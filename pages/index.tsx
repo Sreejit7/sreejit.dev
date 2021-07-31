@@ -9,6 +9,7 @@ import { navItemTitles } from "../src/data/navItems";
 import Skills from "../src/sections/Skills";
 import Projects from "../src/sections/Projects";
 import Contact from "../src/sections/Contact";
+import { IntroHeading } from "../src/data/sections";
 
 export default function Home() {
   const [sidebar, setSidebar] = useState(false);
@@ -23,7 +24,8 @@ export default function Home() {
     { section: navItemTitles.About, ref: aboutRef },
     { section: navItemTitles.Skills, ref: skillsRef },
     { section: navItemTitles.Projects, ref: projectsRef },
-    { section: navItemTitles.Contact, ref: contactRef }
+    { section: navItemTitles.Contact, ref: contactRef },
+    { section: IntroHeading, ref: introHeadingRef }
   ];
   return (
     <>

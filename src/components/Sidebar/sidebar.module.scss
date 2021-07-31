@@ -6,7 +6,7 @@
   width: 45vw;
   top: $navbar-height;
   right: -100%;
-  // 
+  background-color: #14141465;
   backdrop-filter: blur(15px);
   transition: 0.3s ease-out;
 
@@ -18,7 +18,7 @@
   &-item {
     padding: 2% 5%;
     border-radius: 5px;
-    font-size: $fs-btn;
+    font-size: $fs-body;
     font-weight: $semi-bold;
     height: 60px;
     display: flex;
@@ -33,8 +33,10 @@
     &-list{
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 1.5vh;
       padding: 5% 4%;
+      height: 80%;
     }
   }
 }
@@ -42,32 +44,17 @@
 @media only screen and (max-width: 576px) {
   .sidebar {
     width: 55vw;
-    &-item {
-      &-list {
-        padding-top: 7.5%;
-      }
-    }
   }
 }
 
 @media only screen and (max-width: 425px) {
   .sidebar {
     width: 75vw;
-    &-item {
-      &-list {
-        padding-top: 10%;
-      }
-    }
   }
 }
 
 @media only screen and (max-width: 350px) {
   .sidebar {
     width: 85vw;
-    &-item {
-      &-list {
-        padding-top: 18%;
-      }
-    }
   }
 }
