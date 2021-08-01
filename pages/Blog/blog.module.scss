@@ -1,0 +1,15 @@
+.blog {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7vh 5vw;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .blog {
+    &-list {
+      justify-content: center;
+    }
+  }
+}
