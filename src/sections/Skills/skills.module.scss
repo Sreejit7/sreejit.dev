@@ -8,6 +8,7 @@
     flex-wrap: wrap;
     gap: 5vh 5vw;
     margin-top: 4vh;
+    width: 90%;
   }
   &-text {
     width: 80%;
@@ -15,10 +16,10 @@
   }
   &-icon {
     transition: 0.2s ease-out;
-    padding: 5px;
     svg {
-      font-size: 6rem;
+      font-size: 6.5rem;
       transition: 0.2s ease-out;
+      padding: 5px;
       &:hover {
         color: $primary-color-light;
         transform: scale(1.2) rotate(-6deg);
@@ -51,8 +52,10 @@
       }
     }
     &-list {
+      width: 100%;
       padding: 0 3vw;
       justify-content: center;
+      gap: 8vh 8vw;
     }
   }
 }

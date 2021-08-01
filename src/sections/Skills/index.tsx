@@ -16,7 +16,7 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
     <IconContext.Provider
       value={{
         color: "#e8e8e8",
-        size: isMobileView ? "4rem" : "6rem",
+        size: isMobileView ? "4.5rem" : "6.5rem",
         className: styles["skills-icon"],
       }}
     >
