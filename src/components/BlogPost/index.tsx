@@ -20,7 +20,7 @@ const BlogPost = (blogPost: BlogPostType) => {
           className={styles["blogpost-image"]}
         />
         <h3 className={styles["blogpost-title"]}>{title}</h3>
-        <p className={styles["blogpost-brief"]}>{brief}</p>
+        <span className={styles["blogpost-brief"]}>{brief}</span>
       </article>
     </a>
   );
