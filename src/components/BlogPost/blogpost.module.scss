@@ -8,6 +8,26 @@
   flex-direction: column;
   gap: 3vh;
   transition: all ease 0.3s;
+  position: relative;
+  padding-bottom: 2vh;
+
+  &::after {  
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: $primary-color-light;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
 
   &-title {
     font-size: $fs-title3;
@@ -27,16 +47,15 @@
     line-height: 28px;
     text-align: justify;
   }
-
 }
 
-@media only screen and (max-width: 990px ){
+@media only screen and (max-width: 990px) {
   .blogpost {
     max-width: 40vw;
   }
 }
 
-@media only screen and (max-width: 768px ){
+@media only screen and (max-width: 768px) {
   .blogpost {
     max-width: 42vw;
     &-title {
@@ -50,7 +69,7 @@
   }
 }
 
-@media only screen and (max-width: 576px ){
+@media only screen and (max-width: 576px) {
   .blogpost {
     max-width: 80vw;
 
@@ -61,10 +80,8 @@
   }
 }
 
-@media only screen and (max-width: 450px ){
+@media only screen and (max-width: 450px) {
   .blogpost {
     max-width: 90vw;
   }
 }
-
-

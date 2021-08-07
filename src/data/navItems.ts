@@ -8,10 +8,6 @@ export enum navItemTitles {
 
 export const navbarItems = [
   {
-    title: navItemTitles.Blog,
-    link: "#blog",
-  },
-  {
     title: navItemTitles.About,
     link: "#about",
   },
@@ -22,6 +18,10 @@ export const navbarItems = [
   {
     title: navItemTitles.Projects,
     link: "#projects",
+  },
+  {
+    title: navItemTitles.Blog,
+    link: "#blog",
   },
   {
     title: navItemTitles.Contact,
