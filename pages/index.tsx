@@ -16,6 +16,7 @@ import Footer from "../src/components/Footer";
 import { BlogPostType } from "../src/data/blogQuery";
 import BlogSection from "../src/sections/Blog";
 
+
 type Props = {
   posts: BlogPostType[];
 };
