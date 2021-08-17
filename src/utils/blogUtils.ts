@@ -10,5 +10,5 @@ export const fetchPosts = async () => {
     body: JSON.stringify({ query }),
   })
   const ApiResponse = await response.json();
-  return ApiResponse.data.user.publication.posts;
+  return ApiResponse.data.user.publication.posts.slice(0, 3);
 };

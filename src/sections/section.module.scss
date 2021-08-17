@@ -1,15 +1,57 @@
 @import "../styles/scss-variables";
-.section-text {
-  font-size: 1.5rem;
-  line-height: 40px;
-  text-align: justify;
-  @media only screen and (max-width: 768px) {
-    font-size: $fs-body;
+.section {
+  &-text {
+    font-size: 1.5rem;
+    line-height: 40px;
+    text-align: justify;
+    @media only screen and (max-width: 768px) {
+      font-size: $fs-body;
+    }
+    &-highlight {
+      color: $primary-color-light;
+      font-weight: $medium;
+    }
   }
-  &-highlight {
-    color: $primary-color-light;
-    font-weight: $medium;
+
+  &-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    &-text {
+      margin: 6vh 0;
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      font-size: $fs-title3;
+      font-weight: $semi-bold;
+      gap: 2vw;
+      padding: 8px 12px;
+      transition: ease 0.3s;
+      // transform: rotate3d(2, -1, -1, -0.2turn);
+  
+      svg {
+        font-size: 2rem;
+      }
+  
+      &:hover {
+        // transform: rotate3d(2, -1, -1, 0.1turn);
+        background-color: $primary-color;
+        // color: $dark-bg;
+        box-shadow: 2px 2px 0px #fff;
+        border-radius: $card-radius;
+      }
+  
+      @media only screen and (max-width: 768px) {
+        margin-top: 5vh;
+      }
+      @media only screen and (max-width: 576px) {
+        margin-top: 2vh;
+        font-size: $fs-body;
+      }
+    }
   }
+
 }
 
 .sectionLeft {
@@ -26,3 +68,4 @@
   justify-content: center;
   flex: 0.5;
 }
+

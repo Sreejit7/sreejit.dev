@@ -1,5 +1,6 @@
 import cn from "classnames";
 import { forwardRef } from "react";
+import { IoIosPaper } from 'react-icons/io';
 import Layout from "../../components/Layout";
 import layoutStyles from "../../components/Layout/layout.module.scss";
 import { BlogPostType } from "../../data/blogQuery";
@@ -26,6 +27,12 @@ const BlogSection = forwardRef<HTMLElement, BlogPropsType>(({ posts }, ref ) => 
             <BlogPost key={index} {...post} />
           ))}
         </ul>
+        <footer className={sectionStyles["section-footer"]}>
+          <a className={cn(sectionStyles["section-footer-text"], "btn-3d")} target="_blank" rel="noreferrer" href="https://blog.sreejit.dev">
+            Read all posts
+            <IoIosPaper />
+          </a>
+        </footer>
       </section>
     </Layout>
   );

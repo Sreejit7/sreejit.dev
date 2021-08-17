@@ -15,6 +15,7 @@ import { IntroHeading } from "../src/data/sections";
 import Footer from "../src/components/Footer";
 import { BlogPostType } from "../src/data/blogQuery";
 import BlogSection from "../src/sections/Blog";
+import Head from "next/head";
 
 
 type Props = {
@@ -41,6 +42,9 @@ export default function Home({ posts }: Props) {
   ];
   return (
     <>
+      <Head>
+        <title>Sreejit De</title>
+      </Head>
       <GlobalContext.Provider
         value={{
           isSidebarOpen: sidebar,
