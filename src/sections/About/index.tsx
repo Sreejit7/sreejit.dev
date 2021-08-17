@@ -51,16 +51,7 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
           <span
             className={cn(styles["about-text"], sectionStyles["section-text"])}
           >
-            I’m an avid{" "}
-            <span
-              className={cn(
-                styles["about-text-highlight"],
-                sectionStyles["section-text-highlight"]
-              )}
-            >
-              sports fan
-            </span>{" "}
-            - from Football to F1!
+            I’m an avid sports fan - from Football to F1!
           </span>
         </section>
         <section className={styles["about-right"]}>

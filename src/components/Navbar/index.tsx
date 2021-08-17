@@ -7,6 +7,7 @@ import { MutableRefObject, forwardRef } from "react";
 import cn from "classnames";
 import { scrollToSection } from "../../utils/scrollUtils";
 import useScroll from "../../hooks/useScroll";
+import ScrollIndicator from "../ScrollIndicator";
 
 export type NavbarProps = {
   refs: {
@@ -27,6 +28,7 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(({ refs }, ref) => {
   return (
     <header className={cn(styles.navbar, !transparentNavbar && styles["navbar-opaque"])} ref={ref}>
       <h3 className={styles["navbar-text"]}>Hey, I’m Sreejit.</h3>
+      <ScrollIndicator />
       <nav className={styles["navbar-list"]}>
         {navbarItems.map(({ link, title }, index) => {
           return (

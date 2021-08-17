@@ -5,6 +5,7 @@ import layoutStyles from "../../components/Layout/layout.module.scss";
 import styles from "./contact.module.scss";
 import sectionStyles from "../section.module.scss";
 import { socialHandles } from "../../data/socialHandles";
+import MailButton from "../../components/MailButton";
 
 const Contact = forwardRef<HTMLElement>((props, ref) => {
   return (
@@ -18,13 +19,7 @@ const Contact = forwardRef<HTMLElement>((props, ref) => {
           <br />
           Have a question or just want to drop a hello?
         </span>
-        <a
-          href="mailto:sreejitde7@gmail.com"
-          target="_top"
-          className="btn btn-primary btn-md"
-        >
-          Drop a message
-        </a>
+        <MailButton />
         <h3 className={styles["contact-subtitle"]}>Let’s get connected!</h3>
         <ul className={styles["contact-socials"]}>
           {socialHandles.map(({ icon, link, social }, index) => (
