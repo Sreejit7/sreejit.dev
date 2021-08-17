@@ -1,5 +1,6 @@
-import { MutableRefObject, useEffect } from "react";
+import { MutableRefObject, useEffect, useState } from "react";
 import { useGlobalContext } from "../context/useGlobalContext";
+import { IntroHeading } from "../data/sections";
 
 type scrollProps = {
   refs: {
@@ -10,14 +11,25 @@ type scrollProps = {
 }
 const useScroll = ({ refs, headerHeight }: scrollProps) => {
   const { visibleSection, setVisibleSection } = useGlobalContext();
+  const [transparentNavbar, setTransparentNavbar] = useState(true);
+
   useEffect(() => {
+    const setNavbarTransparency = () => {
+      const scrollPosition = window.scrollY + headerHeight;
+      const introHeadingTop = refs.find(({ section, ref}) => section === IntroHeading)?.ref.current.offsetTop;
+      if(introHeadingTop && (scrollPosition >= introHeadingTop)){
+        setTransparentNavbar(false);
+      }else{
+        setTransparentNavbar(true);
+      }
+    }
     const getVisibleSection = () => {
       const scrollPosition = window.scrollY + headerHeight;
       const selectedSection = refs.find(({ section, ref }) => {
         if(ref && ref.current){
           const { offsetTop } = ref.current;
           const { height } = ref.current.getBoundingClientRect();
-          return scrollPosition > offsetTop && scrollPosition < (offsetTop + height)
+          return scrollPosition >= offsetTop && scrollPosition <= (offsetTop + height)
         }
       });
 
@@ -28,12 +40,17 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
       }
     }
     window.addEventListener("scroll", getVisibleSection);
+    window.addEventListener("scroll", setNavbarTransparency);
 
-    return() => window.removeEventListener("scroll", getVisibleSection);
-  },[]);
+    return() => {
+      window.removeEventListener("scroll", getVisibleSection);
+      window.removeEventListener("scroll", setNavbarTransparency);
+    }
+  },[headerHeight, visibleSection]);
 
   return{
-    visibleSection
+    visibleSection,
+    transparentNavbar
   }
 }
 

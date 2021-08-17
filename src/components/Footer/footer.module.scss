@@ -1,0 +1,39 @@
+@import "../../styles/scss-variables";
+.footer {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  font-size: $fs-body;
+  font-weight: $medium;
+
+  &-text {
+    background: -moz-linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
+    background: -webkit-linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
+    background: linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient 10s ease infinite;
+    text-align: center;
+    position: relative;
+
+  }
+
+
+  @media only screen and (max-width: 475px) {
+    font-size: $fs-btn;
+  }
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

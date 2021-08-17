@@ -22,7 +22,7 @@ const Introduction = forwardRef<HTMLHeadingElement, IntroPropsType>(
         </h2>
         <span className={styles["intro-text"]}>
           Yeah, I’m one of those folks who just sit in front of their machine
-          and build and break things.
+          and build and break stuff.
           <br />
           (well, most of the times!)
         </span>
