@@ -20,7 +20,7 @@ const Contact = forwardRef<HTMLElement>((props, ref) => {
           Have a question or just want to drop a hello?
         </span>
         <MailButton />
-        <h3 className={styles["contact-subtitle"]}>Let’s get connected!</h3>
+        <h2 className={styles["contact-subtitle"]}>Let’s get connected!</h2>
         <ul className={styles["contact-socials"]}>
           {socialHandles.map(({ icon, link, social }, index) => (
             <li key={index}>

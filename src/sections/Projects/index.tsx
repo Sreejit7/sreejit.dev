@@ -16,7 +16,9 @@ const Projects = forwardRef<HTMLElement>((props, ref) => {
         <h1 className="section-title">Projects</h1>
         <ul className={styles["projects-list"]}>
           {projects.map((project, index) => (
-            <ProjectItem key={index} project={project} odd={index % 2 === 1} />
+            <li key={index}>
+              <ProjectItem project={project} odd={index % 2 === 1} />
+            </li>
           ))}
         </ul>
         <footer className={sectionStyles["section-footer"]}>
