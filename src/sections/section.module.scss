@@ -10,6 +10,9 @@
     &-highlight {
       color: $primary-color-light;
       font-weight: $semi-bold;
+      position: relative;
+      padding-bottom: 5px;
+      @include underline-effect();
     }
   }
 

@@ -40,11 +40,11 @@ const Introduction = forwardRef<HTMLHeadingElement, IntroPropsType>(
         </motion.h1>
         <h2 className={styles["intro-subtitle"]}>
           <span className={styles["intro-job"]}>Software Engineer</span> based
-          in <span className={styles["intro-country"]}>India.</span>
+          in India.
         </h2>
         <span className={styles["intro-text"]}>
-          Yeah, I’m one of those folks who just sit in front of their machine
-          and build and break stuff.
+          Yeah, I’m one of those folks who just sit in front of their machine,
+          and build & break stuff.
           <br />
           (well, most of the times!)
         </span>

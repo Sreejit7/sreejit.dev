@@ -39,6 +39,15 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
             </a>
             ,{" "}
             <a
+              href="https://angular.io/"
+              target="_blank"
+              rel="noreferrer"
+              className={sectionStyles["section-text-highlight"]}
+            >
+              Angular
+            </a>
+            ,{" "}
+            <a
               href="https://nodejs.org/en/"
               target="_blank"
               rel="noreferrer"

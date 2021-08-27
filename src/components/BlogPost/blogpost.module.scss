@@ -10,24 +10,7 @@
   transition: all ease 0.3s;
   position: relative;
   padding-bottom: 2vh;
-
-  &::after {  
-    background: none repeat scroll 0 0 transparent;
-    bottom: 0;
-    content: "";
-    display: block;
-    height: 2px;
-    left: 50%;
-    position: absolute;
-    background: $primary-color-light;
-    transition: width 0.3s ease 0s, left 0.3s ease 0s;
-    width: 0;
-  }
-
-  &:hover::after {
-    width: 100%;
-    left: 0;
-  }
+  @include underline-effect();
 
   &-title {
     font-size: $fs-title3;
