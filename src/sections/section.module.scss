@@ -9,7 +9,10 @@
     }
     &-highlight {
       color: $primary-color-light;
-      font-weight: $medium;
+      font-weight: $semi-bold;
+      position: relative;
+      padding-bottom: 5px;
+      @include underline-effect();
     }
   }
 

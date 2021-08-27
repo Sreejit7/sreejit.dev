@@ -8,7 +8,9 @@
   right: -100%;
   background-color: #14141465;
   backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
   transition: 0.3s ease-out;
+  background: -moz-linear-gradient(90deg, #141414d5 0%, #141414 100%);
 
   &-active {
     right: 0;

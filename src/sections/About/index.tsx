@@ -17,23 +17,34 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
           <span
             className={cn(styles["about-text"], sectionStyles["section-text"])}
           >
-            Hello, my name is Sreejit De. I’m a{" "}
+            Hello, my name is Sreejit De. I &apos;m a{" "}
             <span
               className={cn(
-                styles["about-text-highlight"],
-                sectionStyles["section-text-highlight"]
+                styles["about-text-highlight"]
               )}
             >
               Software Engineer
             </span>{" "}
             based in India, passionate about building things for the web. I love
-            learning new technologies & getting my hands dirty playing around
-            with them.
+            learning new technologies &amp; getting my hands dirty playing around
+            with them. I &apos;m sharing my journey &amp; learnings on my {" "}
+            <a
+              className={cn(
+                styles["about-text-highlight"],
+                sectionStyles["section-text-highlight"]
+              )}
+              target="_blank"
+              rel="noreferrer"
+              href="https://blog.sreejit.dev"
+            >
+             tech blog 
+            </a>{" "}
+            regularly.
           </span>
           <span
             className={cn(styles["about-text"], sectionStyles["section-text"])}
           >
-            Currently, I’m working at{" "}
+            Currently, I &apos;m working at{" "}
             <a
               className={cn(
                 styles["about-text-highlight"],
@@ -45,22 +56,13 @@ const About = React.forwardRef<HTMLElement>((props, ref) => {
             >
               HashedIn
             </a>
-            , collaborating on building SaaS products for a wide range of
+            , collaborating on building intelligent cloud based products for a wide range of
             clients.
           </span>
           <span
             className={cn(styles["about-text"], sectionStyles["section-text"])}
           >
-            I’m an avid{" "}
-            <span
-              className={cn(
-                styles["about-text-highlight"],
-                sectionStyles["section-text-highlight"]
-              )}
-            >
-              sports fan
-            </span>{" "}
-            - from Football to F1!
+            I’m an avid sports fan - from Football to F1!
           </span>
         </section>
         <section className={styles["about-right"]}>
