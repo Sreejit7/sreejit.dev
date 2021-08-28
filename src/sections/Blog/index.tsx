@@ -24,7 +24,9 @@ const BlogSection = forwardRef<HTMLElement, BlogPropsType>(({ posts }, ref ) => 
         </span>
         <ul className={styles["blog-list"]}>
           {posts.map((post, index) => (
-            <BlogPost key={index} {...post} />
+            <li key={index}>
+              <BlogPost {...post} />
+            </li>
           ))}
         </ul>
         <footer className={sectionStyles["section-footer"]}>

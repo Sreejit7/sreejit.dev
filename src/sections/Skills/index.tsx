@@ -67,7 +67,7 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
             etc.
           </span>
           <ul className={styles["skills-list"]}>
-            {skills.map(({ title, icon, color }, index) => (
+            {skills.map(({ title, icon }, index) => (
               <li key={index} className={styles["skills-list-item"]}>
                 {/* <h4>{title}</h4> */}
                 <span className={styles["skills-icon"]}>
