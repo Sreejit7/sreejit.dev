@@ -1,6 +1,5 @@
-import { GetStaticProps } from "next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { MutableRefObject, useRef, useState } from "react";
-import { ParsedUrlQuery } from "querystring";
 import { fetchPosts } from "../src/utils/blogUtils";
 import Navbar from "../src/components/Navbar";
 import Introduction from "../src/sections/Introduction";
@@ -13,20 +12,16 @@ import Projects from "../src/sections/Projects";
 import Contact from "../src/sections/Contact";
 import { IntroHeading } from "../src/data/sections";
 import Footer from "../src/components/Footer";
-import { BlogPostType } from "../src/data/blogQuery";
 import BlogSection from "../src/sections/Blog";
 import Head from "next/head";
 
-
-type Props = {
-  posts: BlogPostType[];
-};
-
-export default function Home({ posts }: Props) {
+export default function Home({
+  posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   const [sidebar, setSidebar] = useState(false);
   const [visibleSection, setVisibleSection] = useState("");
   const headerRef = useRef() as MutableRefObject<HTMLElement>;
-  const introHeadingRef = useRef() as MutableRefObject<HTMLHeadingElement>; 
+  const introHeadingRef = useRef() as MutableRefObject<HTMLHeadingElement>;
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
   const skillsRef = useRef() as MutableRefObject<HTMLElement>;
   const projectsRef = useRef() as MutableRefObject<HTMLElement>;
@@ -38,7 +33,7 @@ export default function Home({ posts }: Props) {
     { section: navItemTitles.Projects, ref: projectsRef },
     { section: navItemTitles.Blog, ref: blogRef },
     { section: navItemTitles.Contact, ref: contactRef },
-    { section: IntroHeading, ref: introHeadingRef }
+    { section: IntroHeading, ref: introHeadingRef },
   ];
   return (
     <>
@@ -55,7 +50,11 @@ export default function Home({ posts }: Props) {
       >
         <Navbar refs={sectionRefs} ref={headerRef} />
         <Sidebar refs={sectionRefs} />
-        <Introduction ref={introHeadingRef} aboutRef={aboutRef} headerRef={headerRef} />
+        <Introduction
+          ref={introHeadingRef}
+          aboutRef={aboutRef}
+          headerRef={headerRef}
+        />
         <About ref={aboutRef} />
         <Skills ref={skillsRef} />
         <Projects ref={projectsRef} />
@@ -67,11 +66,10 @@ export default function Home({ posts }: Props) {
   );
 }
 
-interface Params extends ParsedUrlQuery {}
-
-export const getStaticProps: GetStaticProps<Props, Params> = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await fetchPosts();
   return {
     props: { posts },
+    revalidate: 1800,
   };
 };
