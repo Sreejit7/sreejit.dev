@@ -70,6 +70,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const posts = await fetchPosts();
   return {
     props: { posts },
-    revalidate: 30,
+    revalidate: 1800,
   };
 };
