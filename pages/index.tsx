@@ -14,6 +14,8 @@ import { IntroHeading } from "../src/data/sections";
 import Footer from "../src/components/Footer";
 import BlogSection from "../src/sections/Blog";
 import Head from "next/head";
+import { TooltipProvider } from "../src/context/useTooltipContext";
+import Tooltip from "../src/components/Tooltip";
 
 export default function Home({
   posts,
@@ -48,19 +50,22 @@ export default function Home({
           setVisibleSection,
         }}
       >
-        <Navbar refs={sectionRefs} ref={headerRef} />
-        <Sidebar refs={sectionRefs} />
-        <Introduction
-          ref={introHeadingRef}
-          aboutRef={aboutRef}
-          headerRef={headerRef}
-        />
-        <About ref={aboutRef} />
-        <Skills ref={skillsRef} />
-        <Projects ref={projectsRef} />
-        <BlogSection ref={blogRef} posts={posts} />
-        <Contact ref={contactRef} />
-        <Footer />
+        <TooltipProvider>
+          <Tooltip />
+          <Navbar refs={sectionRefs} ref={headerRef} />
+          <Sidebar refs={sectionRefs} />
+          <Introduction
+            ref={introHeadingRef}
+            aboutRef={aboutRef}
+            headerRef={headerRef}
+          />
+          <About ref={aboutRef} />
+          <Skills ref={skillsRef} />
+          <Projects ref={projectsRef} />
+          <BlogSection ref={blogRef} posts={posts} />
+          <Contact ref={contactRef} />
+          <Footer />
+        </TooltipProvider>
       </GlobalContext.Provider>
     </>
   );

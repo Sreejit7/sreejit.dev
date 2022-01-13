@@ -1,0 +1,32 @@
+.tooltip {
+  display: none;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-weight: 700;
+  text-align: center;
+  background-color: #fff;
+  position: fixed;
+  transform: translateX(-50%);
+  z-index: 10;
+  transition: all 0.3s linear;
+  color: #6d61ee;
+  box-shadow: 2px 2px 10px 0px #6d61ee;
+
+  &-show {
+    display: block;
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 5px solid #fff;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

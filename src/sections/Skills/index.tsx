@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, MouseEvent, MutableRefObject, useRef } from "react";
 import cn from "classnames";
 import Layout from "../../components/Layout";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
@@ -7,10 +7,35 @@ import layoutStyles from "../../components/Layout/layout.module.scss";
 import sectionStyles from "../section.module.scss";
 import { skills } from "../../data/skills";
 import { IconContext } from "react-icons/lib";
-
+import {
+  TooltipActionTypes,
+  useTooltipContext,
+} from "../../context/useTooltipContext";
 
 const Skills = forwardRef<HTMLElement>((props, ref) => {
   const { isMobileView } = useWindowDimensions();
+
+  const { dispatch } = useTooltipContext();
+
+  const displayTooltip = (e: MouseEvent<HTMLElement>, title: string) => {
+    const pos = e.currentTarget.getBoundingClientRect();
+    const center = (pos.left + pos.right) / 2;
+    const bottom = pos.bottom + 15;
+
+    if (title) {
+      dispatch({
+        type: TooltipActionTypes.CREATE_TOOLTIP,
+        text: title,
+        location: { center, bottom },
+      });
+    }
+  };
+
+  const closeTooltip = () => {
+    dispatch({
+      type: TooltipActionTypes.DELETE_TOOLTIP,
+    });
+  };
 
   return (
     <IconContext.Provider
@@ -22,31 +47,15 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
     >
       <Layout>
         <section ref={ref} className={layoutStyles.section}>
-          <h1 className={cn("section-title", styles["skills-title"])}>Skills</h1>
+          <h1 className={cn("section-title", styles["skills-title"])}>
+            Skills
+          </h1>
           <span
             className={cn(sectionStyles["section-text"], styles["skills-text"])}
           >
             Being a developer is to be always learning and evolving constantly.
             Currently while building things for the web, I’m working on and
             learning these technologies and trying to grasp a few others like{" "}
-            <a
-              href="https://nextjs.org/"
-              target="_blank"
-              rel="noreferrer"
-              className={sectionStyles["section-text-highlight"]}
-            >
-              Next.js
-            </a>
-            ,{" "}
-            <a
-              href="https://angular.io/"
-              target="_blank"
-              rel="noreferrer"
-              className={sectionStyles["section-text-highlight"]}
-            >
-              Angular
-            </a>
-            ,{" "}
             <a
               href="https://nodejs.org/en/"
               target="_blank"
@@ -69,8 +78,11 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
           <ul className={styles["skills-list"]}>
             {skills.map(({ title, icon }, index) => (
               <li key={index} className={styles["skills-list-item"]}>
-                {/* <h4>{title}</h4> */}
-                <span className={styles["skills-icon"]}>
+                <span
+                  className={styles["skills-icon"]}
+                  onMouseEnter={(e) => displayTooltip(e, title)}
+                  onMouseLeave={() => closeTooltip()}
+                >
                   {icon}
                 </span>
               </li>
