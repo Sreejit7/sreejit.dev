@@ -26,6 +26,21 @@ li {
   box-sizing: border-box;
 }
 
+.flex {
+  display: flex;
+
+  &-col {
+    flex-direction: column;
+  }
+
+  &-center {
+    align-items: center;
+  }
+
+  &-justify-center {
+    justify-content: center;
+  }
+}
 .btn {
   display: flex;
   align-items: center;
