@@ -17,6 +17,15 @@ export const projects: ProjectItemInterface[] = [
     techStack: ["React", "Firebase", "Stripe Payments API"],
   },
   {
+    title: "Sample Next.js Blog",
+    imageUrl: "/images/nextjs-blog.png",
+    githubLink: "https://github.com/Sreejit7/sample-nextjs-blog",
+    url: "https://sreejit-tech-blog.vercel.app/",
+    desc: `A sample Next.js blog website displaying a bunch of blogs on separate categories. 
+          Readers can view blogs related to a particular category, and post comments.`,
+    techStack: ["Next.js", "GraphQL", "Tailwind CSS"],
+  },
+  {
     title: "Covid Care",
     imageUrl: "/images/covid-care.png",
     githubLink: "https://github.com/Sreejit7/COVID-care",
@@ -24,14 +33,5 @@ export const projects: ProjectItemInterface[] = [
     desc: `COVID-CARE is a website designed for tracking the COVID-19 pandemic data 
           like deaths, cases & recoveries, upcoming vaccine information & top headlines related to COVID-19.`,
     techStack: ["React", "Chart.js", "disease.sh API", "GNews API"],
-  },
-  {
-    title: "Homemade",
-    imageUrl: "/images/homemade.png",
-    githubLink: "https://github.com/Sreejit7/Ecommerce-website",
-    url: "https://github.com/Sreejit7/Ecommerce-website",
-    desc: `Homemade is an e-commerce platform for all homemade goods - from delicious foods to aesthetic artworks!
-          You can search for every homemade thing you crave for, and sell your homemade goods as well.`,
-    techStack: ["React", "Firebase", "Stripe Payments API"],
   },
 ];
