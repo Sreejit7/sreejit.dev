@@ -8,7 +8,7 @@ import {
   SiAngular,
 } from "react-icons/si";
 import { FaSass } from "react-icons/fa";
-import { MutableRefObject, useRef } from "react";
+
 export const skills = [
   {
     title: "TypeScript",
