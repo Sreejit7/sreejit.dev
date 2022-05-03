@@ -22,6 +22,7 @@ export default function Home({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [sidebar, setSidebar] = useState(false);
   const [visibleSection, setVisibleSection] = useState("");
+
   const headerRef = useRef() as MutableRefObject<HTMLElement>;
   const introHeadingRef = useRef() as MutableRefObject<HTMLHeadingElement>;
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
@@ -37,6 +38,7 @@ export default function Home({
     { section: navItemTitles.Contact, ref: contactRef },
     { section: IntroHeading, ref: introHeadingRef },
   ];
+
   return (
     <>
       <Head>
@@ -73,6 +75,7 @@ export default function Home({
 
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await fetchPosts();
+
   return {
     props: { posts },
     revalidate: 1800,
