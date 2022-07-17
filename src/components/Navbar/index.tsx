@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import styles from "./navbar.module.scss";
-import { navbarItems } from "../../data/navItems";
-import { useGlobalContext } from "../../context/useGlobalContext";
 import { MutableRefObject, forwardRef } from "react";
 import cn from "classnames";
+import styles from "./navbar.module.scss";
+import { navbarItems } from "../../data/navItems";
+import {
+  GlobalContextActionsTypes,
+  useGlobalContext,
+} from "../../context/useGlobalContext";
 import { scrollToSection } from "../../utils/scrollUtils";
 import useScroll from "../../hooks/useScroll";
 import ScrollIndicator from "../ScrollIndicator";
@@ -14,78 +17,81 @@ export type NavbarProps = {
     section: string;
     ref: MutableRefObject<HTMLElement>;
   }[];
+  sidebarButtonRef: MutableRefObject<HTMLElement>;
 };
-const Navbar = forwardRef<HTMLElement, NavbarProps>(({ refs }, ref) => {
-  const { isSidebarOpen, setSidebar } = useGlobalContext();
-  const { transparentNavbar, visibleSection } = useScroll({
-    refs,
-    headerHeight: (ref as MutableRefObject<HTMLElement>).current?.offsetHeight,
-  });
-  const handleScrollToSection = (sectionTitle: string) => {
-    const section = refs.find(({ section }) => section === sectionTitle);
-    scrollToSection(
-      section?.ref.current?.offsetTop,
-      (ref as MutableRefObject<HTMLElement>).current?.offsetHeight
-    );
-  };
+const Navbar = forwardRef<HTMLElement, NavbarProps>(
+  ({ refs, sidebarButtonRef }, ref) => {
+    const {
+      state: { isSidebarOpen, visibleSection },
+      dispatch,
+    } = useGlobalContext();
 
-  return (
-    <header
-      className={cn(
-        styles.navbar,
-        !transparentNavbar && styles["navbar-opaque"]
-      )}
-      ref={ref}
-    >
-      <h3 className={styles["navbar-text"]}>Hey, I’m Sreejit.</h3>
-      <ScrollIndicator />
-      <ul className={styles["navbar-list"]}>
-        {navbarItems.map(({ link, title }, index) => {
-          return (
-            <li
-              key={index}
-              className={cn(
-                styles["navbar-list-item"],
-                visibleSection === title && styles["navbar-list-item-visible"]
-              )}
-              onClick={() => handleScrollToSection(title)}
-            >
-              <Link href={`${link}`} scroll={false} passHref>
-                {title}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-      {!isSidebarOpen && (
-        <div
+    const { transparentNavbar } = useScroll({
+      refs,
+      headerHeight: (ref as MutableRefObject<HTMLElement>).current
+        ?.offsetHeight,
+    });
+
+    const handleScrollToSection = (sectionTitle: string) => {
+      const section = refs.find(({ section }) => section === sectionTitle);
+      scrollToSection(
+        section?.ref.current?.offsetTop,
+        (ref as MutableRefObject<HTMLElement>).current?.offsetHeight
+      );
+    };
+
+    return (
+      <header
+        className={cn(
+          styles.navbar,
+          !transparentNavbar && styles["navbar-opaque"]
+        )}
+        ref={ref}
+      >
+        <ScrollIndicator />
+        <ul className={styles["navbar-list"]}>
+          {navbarItems.map(({ link, title }, index) => {
+            return (
+              <li
+                key={index}
+                className={cn(
+                  styles["navbar-list-item"],
+                  visibleSection === title && styles["navbar-list-item-visible"]
+                )}
+                onClick={() => handleScrollToSection(title)}
+              >
+                <Link href={`${link}`} scroll={false} passHref>
+                  {title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        <span
+          ref={sidebarButtonRef}
           className={styles["sidebar-icon"]}
-          onClick={() => setSidebar(true)}
+          onClick={() =>
+            dispatch({
+              type: GlobalContextActionsTypes.SET_SIDEBAR,
+              setSidebar: isSidebarOpen ? "closed" : "open",
+            })
+          }
         >
           <Image
-            alt="Sidebar Icon"
-            src="/images/SidebarIcon.svg"
+            alt={isSidebarOpen ? "Close Sidebar" : "Open Sidebar"}
+            src={
+              isSidebarOpen
+                ? "/images/SidebarCloseIcon.svg"
+                : "/images/SidebarIcon.svg"
+            }
             height={30}
             width={30}
           />
-        </div>
-      )}
-      {isSidebarOpen && (
-        <div
-          className={styles["sidebar-icon"]}
-          onClick={() => setSidebar(false)}
-        >
-          <Image
-            alt="Sidebar Close Icon"
-            src="/images/SidebarCloseIcon.svg"
-            height={30}
-            width={30}
-          />
-        </div>
-      )}
-    </header>
-  );
-});
+        </span>
+      </header>
+    );
+  }
+);
 
 Navbar.displayName = "Navbar";
 

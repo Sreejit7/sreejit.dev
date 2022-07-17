@@ -1,8 +1,8 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
-import { MutableRefObject, useMemo, useRef, useState } from "react";
+import { MutableRefObject, useMemo, useRef } from "react";
 import { fetchPosts } from "../src/utils/blogUtils";
-import { GlobalContext } from "../src/context/useGlobalContext";
+import { GlobalContextProvider } from "../src/context/useGlobalContext";
 import { TooltipProvider } from "../src/context/useTooltipContext";
 import Introduction from "../src/sections/Introduction";
 import About from "../src/sections/About";
@@ -20,9 +20,6 @@ import { sections } from "../src/data/sections";
 export default function Home({
   posts,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [sidebar, setSidebar] = useState(false);
-  const [visibleSection, setVisibleSection] = useState("");
-
   const headerRef = useRef() as MutableRefObject<HTMLElement>;
   const introHeadingRef = useRef() as MutableRefObject<HTMLHeadingElement>;
   const aboutRef = useRef() as MutableRefObject<HTMLElement>;
@@ -30,6 +27,7 @@ export default function Home({
   const projectsRef = useRef() as MutableRefObject<HTMLElement>;
   const blogRef = useRef() as MutableRefObject<HTMLElement>;
   const contactRef = useRef() as MutableRefObject<HTMLElement>;
+  const sidebarButtonRef = useRef() as MutableRefObject<HTMLElement>;
 
   const sectionRefs = useMemo(
     () => [
@@ -48,22 +46,23 @@ export default function Home({
       <Head>
         <title>Sreejit De</title>
       </Head>
-      <GlobalContext.Provider
-        value={{
-          isSidebarOpen: sidebar,
-          setSidebar,
-          visibleSection,
-          setVisibleSection,
-        }}
-      >
+      <GlobalContextProvider>
         <TooltipProvider>
           <Tooltip />
-          <Navbar refs={sectionRefs} ref={headerRef} />
-          <Sidebar refs={sectionRefs} />
+          <Navbar
+            refs={sectionRefs}
+            sidebarButtonRef={sidebarButtonRef}
+            ref={headerRef}
+          />
+          <Sidebar
+            refs={sectionRefs}
+            headerHeight={headerRef.current?.offsetHeight}
+            sidebarButtonRef={sidebarButtonRef}
+          />
           <Introduction
             ref={introHeadingRef}
-            aboutRef={aboutRef}
-            headerRef={headerRef}
+            aboutSectionTop={aboutRef.current?.offsetTop}
+            headerHeight={headerRef.current?.offsetHeight}
           />
           <About ref={aboutRef} />
           <Skills ref={skillsRef} />
@@ -72,7 +71,7 @@ export default function Home({
           <Contact ref={contactRef} />
           <Footer />
         </TooltipProvider>
-      </GlobalContext.Provider>
+      </GlobalContextProvider>
     </>
   );
 }

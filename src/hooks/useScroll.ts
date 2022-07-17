@@ -1,5 +1,8 @@
 import { MutableRefObject, useEffect, useState } from "react";
-import { useGlobalContext } from "../context/useGlobalContext";
+import {
+  GlobalContextActionsTypes,
+  useGlobalContext,
+} from "../context/useGlobalContext";
 import { sections } from "../data/sections";
 
 type scrollProps = {
@@ -10,8 +13,19 @@ type scrollProps = {
   headerHeight: number;
 };
 const useScroll = ({ refs, headerHeight }: scrollProps) => {
-  const { visibleSection, setVisibleSection } = useGlobalContext();
+  const {
+    state: { visibleSection },
+    dispatch,
+  } = useGlobalContext();
+
   const [transparentNavbar, setTransparentNavbar] = useState(true);
+
+  const handleVisibleSection = (section: string) => {
+    dispatch({
+      type: GlobalContextActionsTypes.SET_VISIBLE_SECTION,
+      section,
+    });
+  };
 
   useEffect(() => {
     const setNavbarTransparency = () => {
@@ -25,6 +39,7 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
         setTransparentNavbar(true);
       }
     };
+
     const getVisibleSection = () => {
       const scrollPosition = window.scrollY + headerHeight;
       const selectedSection = refs.find(({ ref }) => {
@@ -38,11 +53,12 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
       });
 
       if (selectedSection?.section !== visibleSection) {
-        setVisibleSection(selectedSection?.section as string);
+        handleVisibleSection(selectedSection?.section as string);
       } else if (!selectedSection && visibleSection) {
-        setVisibleSection("");
+        handleVisibleSection("");
       }
     };
+
     window.addEventListener("scroll", getVisibleSection);
     window.addEventListener("scroll", setNavbarTransparency);
 
@@ -50,10 +66,9 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
       window.removeEventListener("scroll", getVisibleSection);
       window.removeEventListener("scroll", setNavbarTransparency);
     };
-  }, [headerHeight, visibleSection]);
+  }, [headerHeight, visibleSection, refs]);
 
   return {
-    visibleSection,
     transparentNavbar,
   };
 };

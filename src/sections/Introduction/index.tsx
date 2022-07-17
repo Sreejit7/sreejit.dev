@@ -7,20 +7,20 @@ import MailButton from "../../components/MailButton";
 import { motion } from "framer-motion";
 
 type IntroPropsType = {
-  aboutRef: MutableRefObject<HTMLElement>;
-  headerRef: MutableRefObject<HTMLElement>;
+  aboutSectionTop: number;
+  headerHeight: number;
 };
 
 const Introduction = forwardRef<HTMLHeadingElement, IntroPropsType>(
-  ({ aboutRef, headerRef }, ref) => {
-    const [buttonMode, setButtonMode] = useState("READ");
+  ({ aboutSectionTop, headerHeight }, ref) => {
+    const [buttonMode, setButtonMode] = useState<"READ" | "MAIL">("READ");
     // const { scrollYProgress } = useViewportScroll();
     // const scale = useTransform(scrollYProgress, [0, 1], [1, 5]);
 
     useEffect(() => {
       const updateButtonMode = () => {
-        const scrollPos = window.scrollY + headerRef.current.offsetHeight;
-        if (scrollPos >= aboutRef.current.offsetTop) {
+        const scrollPos = window.scrollY + headerHeight;
+        if (scrollPos >= aboutSectionTop) {
           setButtonMode("MAIL");
         }
       };
@@ -53,8 +53,8 @@ const Introduction = forwardRef<HTMLHeadingElement, IntroPropsType>(
             className="btn btn-primary btn-md"
             onClick={() =>
               scrollToSection(
-                aboutRef.current.offsetTop,
-                headerRef.current.offsetHeight
+                aboutSectionTop,
+                headerHeight
               )
             }
           >

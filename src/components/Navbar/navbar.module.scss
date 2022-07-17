@@ -1,11 +1,11 @@
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 2.5vw;
   height: var(--navbar-height);
   position: sticky;
-  z-index: 10;
+  z-index: 5;
   top: 0;
   left: 0;
   right: 0;
@@ -14,17 +14,13 @@
     background-color: var(--dark-bg);
   }
 
-  &-text {
-    visibility: hidden;
-  }
-
   &-list {
     display: flex;
-    flex: 0.4;
     align-items: center;
     justify-content: space-evenly;
     font-size: var(--fs-btn);
     height: 100%;
+    gap: 1.5rem;
 
     &-item {
       height: 95%;
@@ -32,11 +28,10 @@
       align-items: center;
       justify-content: center;
       transition: all ease 0.25s;
-      font-weight: var(--medium);
+      font-weight: var(--semi-bold);
       border-bottom: 3px solid transparent;
       &:hover {
-        font-weight: var(--semi-bold);
-        transition: 0.35s;
+        transition: 0.5s;
         color: var(--primary-color);
       }
 
@@ -61,5 +56,6 @@
   }
   .sidebar-icon {
     display: block;
+    cursor: pointer;
   }
 }
