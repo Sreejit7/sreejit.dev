@@ -1,10 +1,9 @@
-@import "../../styles/scss-variables";
 .contact {
   &-title {
     margin-top: 10vh;
   }
   &-subtitle {
-    font-size: $fs-title2;
+    font-size: var(--fs-title2);
     margin-top: 5vh;
   }
   &-socials {
@@ -15,10 +14,10 @@
     svg {
       font-size: 2rem;
       transition: 0.2s all ease;
-      color: $white-text;
+      color: var(--white-text);
       &:hover {
         transition: 0.3s all ease;
-        color: $primary-color-light !important;
+        color: var(--primary-color-light) !important;
         transform: scale(1.2);
       }
     }
@@ -31,7 +30,7 @@
       margin-top: 7vh;
     }
     &-subtitle {
-      font-size: $fs-title3;
+      font-size: var(--fs-title3);
     }
     &-socials {
       gap: 10vw;
@@ -45,7 +44,7 @@
       margin-top: 4vh;
     }
     &-subtitle {
-      font-size: $fs-title3;
+      font-size: var(--fs-title3);
       margin-top: 2vh;
     }
     &-socials {
@@ -59,7 +58,6 @@
     }
   }
 }
-
 
 @media only screen and (max-width: 350px) {
   .contact {

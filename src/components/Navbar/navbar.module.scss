@@ -1,19 +1,17 @@
-@import "../../styles/scss-variables";
-
 .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5vw;
-  height: $navbar-height;
+  height: var(--navbar-height);
   position: sticky;
-  z-index: 5;
+  z-index: 10;
   top: 0;
   left: 0;
   right: 0;
 
   &-opaque {
-    background-color: $dark-bg;
+    background-color: var(--dark-bg);
   }
 
   &-text {
@@ -25,7 +23,7 @@
     flex: 0.4;
     align-items: center;
     justify-content: space-evenly;
-    font-size: $fs-btn;
+    font-size: var(--fs-btn);
     height: 100%;
 
     &-item {
@@ -34,15 +32,16 @@
       align-items: center;
       justify-content: center;
       transition: all ease 0.25s;
-      font-weight: $medium;
+      font-weight: var(--medium);
+      border-bottom: 3px solid transparent;
       &:hover {
-        font-weight: $semi-bold;
+        font-weight: var(--semi-bold);
         transition: 0.35s;
-        color: $primary-color;
+        color: var(--primary-color);
       }
 
       &-visible {
-        border-bottom: 3px solid $primary-color;
+        border-bottom-color: var(--primary-color);
         border-radius: 1px;
         transition: all ease 0.25s;
       }

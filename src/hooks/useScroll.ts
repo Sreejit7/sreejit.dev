@@ -1,14 +1,14 @@
 import { MutableRefObject, useEffect, useState } from "react";
 import { useGlobalContext } from "../context/useGlobalContext";
-import { IntroHeading } from "../data/sections";
+import { sections } from "../data/sections";
 
 type scrollProps = {
   refs: {
     section: string;
-    ref: MutableRefObject<HTMLElement>
-  }[],
-  headerHeight: number
-}
+    ref: MutableRefObject<HTMLElement>;
+  }[];
+  headerHeight: number;
+};
 const useScroll = ({ refs, headerHeight }: scrollProps) => {
   const { visibleSection, setVisibleSection } = useGlobalContext();
   const [transparentNavbar, setTransparentNavbar] = useState(true);
@@ -16,42 +16,46 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
   useEffect(() => {
     const setNavbarTransparency = () => {
       const scrollPosition = window.scrollY + headerHeight;
-      const introHeadingTop = refs.find(({ section, ref}) => section === IntroHeading)?.ref.current.offsetTop;
-      if(introHeadingTop && (scrollPosition >= introHeadingTop)){
+      const introHeadingTop = refs.find(
+        ({ section, ref }) => section === sections.IntroHeading
+      )?.ref.current.offsetTop;
+      if (introHeadingTop && scrollPosition >= introHeadingTop) {
         setTransparentNavbar(false);
-      }else{
+      } else {
         setTransparentNavbar(true);
       }
-    }
+    };
     const getVisibleSection = () => {
       const scrollPosition = window.scrollY + headerHeight;
-      const selectedSection = refs.find(({ section, ref }) => {
-        if(ref && ref.current){
+      const selectedSection = refs.find(({ ref }) => {
+        if (ref && ref.current) {
           const { offsetTop } = ref.current;
           const { height } = ref.current.getBoundingClientRect();
-          return scrollPosition >= offsetTop && scrollPosition <= (offsetTop + height)
+          return (
+            scrollPosition >= offsetTop && scrollPosition <= offsetTop + height
+          );
         }
       });
 
-      if(selectedSection?.section !== visibleSection){
+      if (selectedSection?.section !== visibleSection) {
         setVisibleSection(selectedSection?.section as string);
-      }else if(!selectedSection && visibleSection){
+      } else if (!selectedSection && visibleSection) {
         setVisibleSection("");
       }
-    }
+    };
     window.addEventListener("scroll", getVisibleSection);
     window.addEventListener("scroll", setNavbarTransparency);
 
-    return() => {
+    return () => {
       window.removeEventListener("scroll", getVisibleSection);
       window.removeEventListener("scroll", setNavbarTransparency);
-    }
-  },[headerHeight, visibleSection]);
+    };
+  }, [headerHeight, visibleSection]);
 
-  return{
+  return {
     visibleSection,
-    transparentNavbar
-  }
-}
+    transparentNavbar,
+  };
+};
 
-export default useScroll
+export default useScroll;

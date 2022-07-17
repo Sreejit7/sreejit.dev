@@ -1,1 +1,3 @@
-export const IntroHeading = "IntroHeading";
+export enum sections {
+  IntroHeading = "IntroHeading",
+}

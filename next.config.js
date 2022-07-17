@@ -6,4 +6,5 @@ module.exports = {
   env: {
     GRAPHCMS_PROJECTS_ENDPOINT: process.env.GRAPHCMS_PROJECTS_ENDPOINT,
   },
+  swcMinify: true,
 };

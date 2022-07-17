@@ -4,7 +4,7 @@ import {
   SiTypescript,
   SiFirebase,
   SiGit,
-  SiNextDotJs,
+  SiNextdotjs,
   SiAngular,
 } from "react-icons/si";
 import { FaSass } from "react-icons/fa";
@@ -22,7 +22,7 @@ export const skills = [
   },
   {
     title: "Next.js",
-    icon: <SiNextDotJs />,
+    icon: <SiNextdotjs />,
     color: "#fff",
   },
   {

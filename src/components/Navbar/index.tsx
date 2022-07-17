@@ -17,7 +17,10 @@ export type NavbarProps = {
 };
 const Navbar = forwardRef<HTMLElement, NavbarProps>(({ refs }, ref) => {
   const { isSidebarOpen, setSidebar } = useGlobalContext();
-  const { transparentNavbar, visibleSection } = useScroll({ refs, headerHeight: (ref as MutableRefObject<HTMLElement>).current?.offsetHeight });
+  const { transparentNavbar, visibleSection } = useScroll({
+    refs,
+    headerHeight: (ref as MutableRefObject<HTMLElement>).current?.offsetHeight,
+  });
   const handleScrollToSection = (sectionTitle: string) => {
     const section = refs.find(({ section }) => section === sectionTitle);
     scrollToSection(
@@ -25,8 +28,15 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(({ refs }, ref) => {
       (ref as MutableRefObject<HTMLElement>).current?.offsetHeight
     );
   };
+
   return (
-    <header className={cn(styles.navbar, !transparentNavbar && styles["navbar-opaque"])} ref={ref}>
+    <header
+      className={cn(
+        styles.navbar,
+        !transparentNavbar && styles["navbar-opaque"]
+      )}
+      ref={ref}
+    >
       <h3 className={styles["navbar-text"]}>Hey, I’m Sreejit.</h3>
       <ScrollIndicator />
       <ul className={styles["navbar-list"]}>
@@ -34,7 +44,10 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(({ refs }, ref) => {
           return (
             <li
               key={index}
-              className={cn(styles["navbar-list-item"], visibleSection === title && styles["navbar-list-item-visible"])}
+              className={cn(
+                styles["navbar-list-item"],
+                visibleSection === title && styles["navbar-list-item-visible"]
+              )}
               onClick={() => handleScrollToSection(title)}
             >
               <Link href={`${link}`} scroll={false} passHref>

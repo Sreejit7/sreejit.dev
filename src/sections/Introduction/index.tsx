@@ -4,7 +4,7 @@ import cn from "classnames";
 import { forwardRef, MutableRefObject, useEffect, useState } from "react";
 import { scrollToSection } from "../../utils/scrollUtils";
 import MailButton from "../../components/MailButton";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import { motion } from "framer-motion";
 
 type IntroPropsType = {
   aboutRef: MutableRefObject<HTMLElement>;

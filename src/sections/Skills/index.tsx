@@ -1,4 +1,4 @@
-import { forwardRef, MouseEvent, MutableRefObject, useRef } from "react";
+import { forwardRef, MouseEvent } from "react";
 import cn from "classnames";
 import Layout from "../../components/Layout";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
