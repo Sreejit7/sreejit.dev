@@ -7,7 +7,7 @@ export const socialHandles = [
   },
   {
     social: "Twitter",
-    link: "https://twitter.com/Srjit7",
+    link: "https://twitter.com/sreejit_de",
     icon: <SiTwitter color="#52A7E7" />,
   },
   {
