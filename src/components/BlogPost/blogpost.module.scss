@@ -1,9 +1,28 @@
-@import "../../styles/scss-variables";
+@mixin underline-effect {
+  &::after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: var(--primary-color-light);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  &:hover::after {
+    width: 100%;
+    left: 0;
+  }
+}
+
 .blogpost {
   padding: 8px 12px;
   max-width: 25vw;
   height: auto;
-  border-radius: $card-radius;
+  border-radius: var(--card-radius);
   display: flex;
   flex-direction: column;
   gap: 3vh;
@@ -13,20 +32,20 @@
   @include underline-effect();
 
   &-title {
-    font-size: $fs-title3;
-    font-weight: $bold;
+    font-size: var(--fs-title3);
+    font-weight: var(--bold);
     transition: all ease 0.2s;
     &:hover {
-      color: $primary-color-light;
+      color: var(--primary-color-light);
     }
   }
 
   &-image {
-    border-radius: $card-radius;
+    border-radius: var(--card-radius);
   }
 
   &-brief {
-    // font-size: $fs-btn;
+    // font-size: var(--fs-btn);
     line-height: 28px;
     text-align: justify;
   }
@@ -42,8 +61,8 @@
   .blogpost {
     max-width: 42vw;
     &-title {
-      font-size: $fs-title3;
-      font-weight: $semi-bold;
+      font-size: var(--fs-title3);
+      font-weight: var(--semi-bold);
       line-height: 32px;
     }
     &-brief {
@@ -57,7 +76,7 @@
     max-width: 80vw;
 
     &-title {
-      font-size: $fs-body;
+      font-size: var(--fs-body);
       line-height: 30px;
     }
   }

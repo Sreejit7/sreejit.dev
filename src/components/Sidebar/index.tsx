@@ -1,39 +1,69 @@
 import styles from "./sidebar.module.scss";
 import cn from "classnames";
-import { useGlobalContext } from "../../context/useGlobalContext";
+import {
+  GlobalContextActionsTypes,
+  useGlobalContext,
+} from "../../context/useGlobalContext";
 import { navbarItems } from "../../data/navItems";
 import Link from "next/link";
-import { NavbarProps } from "../Navbar";
 import { scrollToSection } from "../../utils/scrollUtils";
-import { MutableRefObject, useEffect, useRef } from "react";
+import { MutableRefObject, useCallback, useEffect, useRef } from "react";
 
-const Sidebar = ({ refs }: NavbarProps) => {
-  const { isSidebarOpen, setSidebar } = useGlobalContext();
+interface SidebarProps {
+  refs: {
+    section: string;
+    ref: MutableRefObject<HTMLElement>;
+  }[];
+  headerHeight: number;
+  sidebarButtonRef: MutableRefObject<HTMLElement>;
+}
+
+const Sidebar = ({ refs, headerHeight, sidebarButtonRef }: SidebarProps) => {
+  const {
+    state: { isSidebarOpen },
+    dispatch,
+  } = useGlobalContext();
+
+  const handleCloseSidebar = useCallback(() => {
+    dispatch({
+      type: GlobalContextActionsTypes.SET_SIDEBAR,
+      setSidebar: "closed",
+    });
+  }, []);
+
   const handleScrollToSection = (sectionTitle: string) => {
     const section = refs.find(({ section }) => section === sectionTitle);
-    scrollToSection(section?.ref.current?.offsetTop, 80);
-    setSidebar(false);
+    scrollToSection(section?.ref.current?.offsetTop, headerHeight);
+    // close the sidebar after scrolling to section
+    handleCloseSidebar();
   };
+
   const sidebarRef = useRef() as MutableRefObject<HTMLElement>;
 
   useEffect(() => {
-    // Closes the sidebar if user clicks outside
+    const sidebarNode = sidebarRef.current;
+
+    /**
+     * @description  Closes the sidebar if user clicks outside the sidebar & sidebar toggle button
+     * @param event the mouse down event
+     */
     const handleOutsideClick = (event: MouseEvent) => {
       if (
         isSidebarOpen &&
-        sidebarRef.current &&
-        !sidebarRef.current.contains(event.target as Node)
+        sidebarNode &&
+        !sidebarNode.contains(event.target as Node) &&
+        !sidebarButtonRef.current.contains(event.target as Node)
       ) {
-        setSidebar(false);
+        handleCloseSidebar();
       }
     };
 
-    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
 
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [setSidebar, isSidebarOpen]);
+  }, [isSidebarOpen, handleCloseSidebar]);
 
   return (
     <aside

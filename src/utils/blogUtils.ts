@@ -1,4 +1,5 @@
 import { BlogPostType, query } from "../data/blogQuery";
+
 export const fetchPosts = async (): Promise<BlogPostType[]> => {
   const response = await fetch("https://api.hashnode.com", {
     method: "POST",

@@ -1,10 +1,9 @@
-@import "../../styles/scss-variables";
 .sidebar {
   position: fixed;
   height: 100%;
   z-index: 10;
   width: 45vw;
-  top: $navbar-height;
+  top: var(--navbar-height);
   right: -100%;
   background-color: #14141465;
   backdrop-filter: blur(15px);
@@ -20,8 +19,8 @@
   &-item {
     padding: 2% 5%;
     border-radius: 5px;
-    font-size: $fs-body;
-    font-weight: $semi-bold;
+    font-size: var(--fs-body);
+    font-weight: var(--semi-bold);
     height: 60px;
     display: flex;
     align-items: center;
@@ -32,7 +31,7 @@
       background-color: #ffffff10;
     }
 
-    &-list{
+    &-list {
       display: flex;
       flex-direction: column;
       justify-content: center;

@@ -1,13 +1,28 @@
-@import "../../styles/scss-variables";
-
 .intro {
-
   &-title {
     margin-top: 18vh;
-    font-size: $fs-title;
-    background: -moz-linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
-    background: -webkit-linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
-    background: linear-gradient(90deg, rgba(255,209,44,1) 0%, rgba(255,91,91,1) 35%, rgba(232,62,136,1) 70%, rgba(247,53,228,1) 97%);
+    font-size: var(--fs-title);
+    background: -moz-linear-gradient(
+      90deg,
+      rgba(255, 209, 44, 1) 0%,
+      rgba(255, 91, 91, 1) 35%,
+      rgba(232, 62, 136, 1) 70%,
+      rgba(247, 53, 228, 1) 97%
+    );
+    background: -webkit-linear-gradient(
+      90deg,
+      rgba(255, 209, 44, 1) 0%,
+      rgba(255, 91, 91, 1) 35%,
+      rgba(232, 62, 136, 1) 70%,
+      rgba(247, 53, 228, 1) 97%
+    );
+    background: linear-gradient(
+      90deg,
+      rgba(255, 209, 44, 1) 0%,
+      rgba(255, 91, 91, 1) 35%,
+      rgba(232, 62, 136, 1) 70%,
+      rgba(247, 53, 228, 1) 97%
+    );
     background-size: 200% 200%;
     background-clip: text;
     -webkit-background-clip: text;
@@ -25,36 +40,52 @@
     }
   }
   &-subtitle {
-    font-size: $fs-title2;
+    font-size: var(--fs-title2);
   }
   &-text {
-    font-size: $fs-title3;
+    font-size: var(--fs-title3);
     line-height: 30px;
     @media only screen and (max-width: 325px) {
-      font-size: $fs-body;
+      font-size: var(--fs-body);
     }
   }
   &-job {
-    color: $primary-color;
+    color: var(--primary-color);
   }
-  &-country{
-    background: rgb(255,194,101);
-    background: -moz-linear-gradient(180deg, rgba(255,194,101,1) 0%, rgba(255,255,255,1) 50%, rgba(124,255,153,1) 100%);
-    background: -webkit-linear-gradient(180deg, rgba(255,194,101,1) 0%, rgba(255,255,255,1) 50%, rgba(124,255,153,1) 100%);
-    background: linear-gradient(180deg, rgba(255,194,101,1) 0%, rgba(255,255,255,1) 50%, rgba(124,255,153,1) 100%);
+  &-country {
+    background: rgb(255, 194, 101);
+    background: -moz-linear-gradient(
+      180deg,
+      rgba(255, 194, 101, 1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(124, 255, 153, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      180deg,
+      rgba(255, 194, 101, 1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(124, 255, 153, 1) 100%
+    );
+    background: linear-gradient(
+      180deg,
+      rgba(255, 194, 101, 1) 0%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(124, 255, 153, 1) 100%
+    );
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 }
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

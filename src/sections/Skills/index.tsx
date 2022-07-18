@@ -1,4 +1,4 @@
-import { forwardRef, MouseEvent, MutableRefObject, useRef } from "react";
+import { forwardRef, MouseEvent } from "react";
 import cn from "classnames";
 import Layout from "../../components/Layout";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
@@ -40,7 +40,6 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
   return (
     <IconContext.Provider
       value={{
-        color: "#e8e8e8",
         size: isMobileView ? "4.5rem" : "6.5rem",
         className: styles["skills-icon"],
       }}
@@ -77,14 +76,13 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
           </span>
           <ul className={styles["skills-list"]}>
             {skills.map(({ title, icon }, index) => (
-              <li key={index} className={styles["skills-list-item"]}>
-                <span
-                  className={styles["skills-icon"]}
-                  onMouseEnter={(e) => displayTooltip(e, title)}
-                  onMouseLeave={() => closeTooltip()}
-                >
-                  {icon}
-                </span>
+              <li
+                key={index}
+                // className={styles["skills-icon"]}
+                onMouseEnter={(e) => displayTooltip(e, title)}
+                onMouseLeave={() => closeTooltip()}
+              >
+                {icon}
               </li>
             ))}
           </ul>

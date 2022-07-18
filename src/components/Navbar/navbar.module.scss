@@ -1,11 +1,9 @@
-@import "../../styles/scss-variables";
-
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 2.5vw;
-  height: $navbar-height;
+  height: var(--navbar-height);
   position: sticky;
   z-index: 5;
   top: 0;
@@ -13,20 +11,16 @@
   right: 0;
 
   &-opaque {
-    background-color: $dark-bg;
-  }
-
-  &-text {
-    visibility: hidden;
+    background-color: var(--dark-bg);
   }
 
   &-list {
     display: flex;
-    flex: 0.4;
     align-items: center;
     justify-content: space-evenly;
-    font-size: $fs-btn;
+    font-size: var(--fs-btn);
     height: 100%;
+    gap: 1.5rem;
 
     &-item {
       height: 95%;
@@ -34,15 +28,15 @@
       align-items: center;
       justify-content: center;
       transition: all ease 0.25s;
-      font-weight: $medium;
+      font-weight: var(--semi-bold);
+      border-bottom: 3px solid transparent;
       &:hover {
-        font-weight: $semi-bold;
-        transition: 0.35s;
-        color: $primary-color;
+        transition: 0.5s;
+        color: var(--primary-color);
       }
 
       &-visible {
-        border-bottom: 3px solid $primary-color;
+        border-bottom-color: var(--primary-color);
         border-radius: 1px;
         transition: all ease 0.25s;
       }
@@ -62,5 +56,6 @@
   }
   .sidebar-icon {
     display: block;
+    cursor: pointer;
   }
 }
