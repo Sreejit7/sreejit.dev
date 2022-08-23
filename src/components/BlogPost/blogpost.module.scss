@@ -30,14 +30,16 @@
   position: relative;
   padding-bottom: 2vh;
   @include underline-effect();
+  &:hover {
+    .blogpost-title {
+      color: var(--primary-color-light);
+    }
+  }
 
   &-title {
     font-size: var(--fs-title3);
     font-weight: var(--bold);
     transition: all ease 0.2s;
-    &:hover {
-      color: var(--primary-color-light);
-    }
   }
 
   &-image {
@@ -48,6 +50,11 @@
     // font-size: var(--fs-btn);
     line-height: 28px;
     text-align: justify;
+    width: inherit;
+
+    #text {
+      width: 300px;
+    }
   }
 }
 

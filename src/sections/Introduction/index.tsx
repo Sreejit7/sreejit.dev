@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout";
 import styles from "./intro.module.scss";
 import cn from "classnames";
-import { forwardRef, MutableRefObject, useEffect, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import { scrollToSection } from "../../utils/scrollUtils";
 import MailButton from "../../components/MailButton";
 import { motion } from "framer-motion";
@@ -28,7 +28,7 @@ const Introduction = forwardRef<HTMLHeadingElement, IntroPropsType>(
       return () => {
         window.removeEventListener("scroll", updateButtonMode);
       };
-    }, []);
+    }, [aboutSectionTop, headerHeight]);
 
     return (
       <Layout cName="section">
@@ -48,21 +48,16 @@ const Introduction = forwardRef<HTMLHeadingElement, IntroPropsType>(
           <br />
           (well, most of the times!)
         </span>
-        {buttonMode === "READ" ? (
+        {/* {buttonMode === "READ" ? (
           <button
             className="btn btn-primary btn-md"
-            onClick={() =>
-              scrollToSection(
-                aboutSectionTop,
-                headerHeight
-              )
-            }
+            onClick={() => scrollToSection(aboutSectionTop, headerHeight)}
           >
             Keep Reading
           </button>
         ) : (
           <MailButton />
-        )}
+        )} */}
       </Layout>
     );
   }
