@@ -1,0 +1,24 @@
+.workplace {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+  cursor: pointer;
+
+  svg:hover {
+    fill: var(--primary-color);
+  }
+}
+
+.timeline {
+  align-self: flex-end;
+  transition: 0.3s all ease;
+
+  &-highlighted {
+    color: var(--primary-color-light);
+  }
+}
+
+.logo {
+  box-shadow: 0px 0px 10px 0px var(--primary-color-light);
+}

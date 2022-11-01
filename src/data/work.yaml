@@ -1,0 +1,10 @@
+Setu:
+  timeline: 2022 - Now
+  desc: I am currently working (read - breaking stuff) at Setu in the Payments team towards building the next gen of financial infrastructure for India ✨
+  logo: "/images/setu.svg"
+  current: true
+
+HashedIn:
+  timeline: 2021 - 2022
+  desc: At HashedIn, I helped enhance the Vision Clinical Trial Dashboard for AbbVie, with new widgets and imrpoved visualisations for existing ones 📊
+  logo: "/images/hashedin.svg"
