@@ -50,19 +50,17 @@ const Navbar = forwardRef<HTMLElement, NavbarProps>(
       >
         <ScrollIndicator />
         <ul className={styles["navbar-list"]}>
-          {navbarItems.map(({ link, title }, index) => {
+          {navbarItems.map(({ title }) => {
             return (
               <li
-                key={index}
+                key={title}
                 className={cn(
                   styles["navbar-list-item"],
                   visibleSection === title && styles["navbar-list-item-visible"]
                 )}
                 onClick={() => handleScrollToSection(title)}
               >
-                <Link href={`${link}`} scroll={false} passHref>
-                  {title}
-                </Link>
+                {title}
               </li>
             );
           })}

@@ -29,6 +29,7 @@ const Sidebar = ({ refs, headerHeight, sidebarButtonRef }: SidebarProps) => {
       type: GlobalContextActionsTypes.SET_SIDEBAR,
       setSidebar: "closed",
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleScrollToSection = (sectionTitle: string) => {
@@ -63,7 +64,7 @@ const Sidebar = ({ refs, headerHeight, sidebarButtonRef }: SidebarProps) => {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
-  }, [isSidebarOpen, handleCloseSidebar]);
+  }, [isSidebarOpen, handleCloseSidebar, sidebarButtonRef]);
 
   return (
     <aside
@@ -74,8 +75,8 @@ const Sidebar = ({ refs, headerHeight, sidebarButtonRef }: SidebarProps) => {
         {navbarItems.map(({ link, title }, index) => (
           <Link key={index} href={link} passHref>
             <li
-              onClick={() => handleScrollToSection(title)}
               className={styles["sidebar-item"]}
+              onClick={() => handleScrollToSection(title)}
             >
               {title}
             </li>

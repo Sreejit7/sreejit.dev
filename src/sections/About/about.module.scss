@@ -27,6 +27,21 @@
     object-fit: contain;
     border-radius: 5px;
   }
+
+  &-workplaces {
+    margin-top: 4vh;
+
+    &-list {
+      margin: 5vh 0;
+      gap: 4rem;
+    }
+
+    &-desc {
+      min-height: 4rem;
+      font-size: var(--fs-body);
+      line-height: 2rem;
+    }
+  }
 }
 
 @media only screen and (max-width: 990px) {

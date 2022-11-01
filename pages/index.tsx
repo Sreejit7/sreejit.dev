@@ -1,6 +1,9 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import { MutableRefObject, useMemo, useRef } from "react";
+import yaml from "yaml";
+import fs from "fs";
+
 import { fetchPosts } from "../src/utils/blogUtils";
 import { GlobalContextProvider } from "../src/context/useGlobalContext";
 import { TooltipProvider } from "../src/context/useTooltipContext";
@@ -16,9 +19,12 @@ import Footer from "../src/components/Footer";
 import Tooltip from "../src/components/Tooltip";
 import { navItemTitles } from "../src/data/navItems";
 import { sections } from "../src/data/sections";
+import { WorkplaceType } from "../src/components/Workplace/types";
+import { BlogPostType } from "../src/data/blogQuery";
 
 export default function Home({
   posts,
+  workInfo,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const headerRef = useRef() as MutableRefObject<HTMLElement>;
   const introHeadingRef = useRef() as MutableRefObject<HTMLHeadingElement>;
@@ -64,7 +70,7 @@ export default function Home({
             aboutSectionTop={aboutRef.current?.offsetTop}
             headerHeight={headerRef.current?.offsetHeight}
           />
-          <About ref={aboutRef} />
+          <About workInfo={workInfo} ref={aboutRef} />
           <Skills ref={skillsRef} />
           <Projects ref={projectsRef} />
           <BlogSection ref={blogRef} posts={posts} />
@@ -76,11 +82,17 @@ export default function Home({
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<{
+  posts: BlogPostType[];
+  workInfo: Record<string, WorkplaceType>;
+}> = async () => {
   const posts = await fetchPosts();
 
+  const workplacesFile = fs.readFileSync("./src/data/work.yaml", "utf-8");
+  const workInfo: Record<string, WorkplaceType> = yaml.parse(workplacesFile);
+
   return {
-    props: { posts },
+    props: { posts, workInfo },
     revalidate: 1800,
   };
 };
