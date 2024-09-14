@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import { MutableRefObject, useEffect, useState } from "react";
 import {
   GlobalContextActionsTypes,
@@ -20,12 +21,12 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
 
   const [transparentNavbar, setTransparentNavbar] = useState(true);
 
-  const handleVisibleSection = (section: string) => {
+  const handleVisibleSection = useCallback((section: string) => {
     dispatch({
       type: GlobalContextActionsTypes.SET_VISIBLE_SECTION,
       section,
     });
-  };
+  },[dispatch]);
 
   useEffect(() => {
     const setNavbarTransparency = () => {
@@ -66,7 +67,7 @@ const useScroll = ({ refs, headerHeight }: scrollProps) => {
       window.removeEventListener("scroll", getVisibleSection);
       window.removeEventListener("scroll", setNavbarTransparency);
     };
-  }, [headerHeight, visibleSection, refs]);
+  }, [headerHeight, visibleSection, refs, handleVisibleSection]);
 
   return {
     transparentNavbar,

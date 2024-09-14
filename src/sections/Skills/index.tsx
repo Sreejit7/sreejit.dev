@@ -65,12 +65,12 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
             </a>
             ,{" "}
             <a
-              href="https://www.mongodb.com/"
+              href="https://www.postgresql.org/"
               target="_blank"
               rel="noreferrer"
               className={sectionStyles["section-text-highlight"]}
             >
-              MongoDB
+              PostgreSQL
             </a>{" "}
             etc.
           </span>

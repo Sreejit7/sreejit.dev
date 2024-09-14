@@ -44,7 +44,7 @@ export default function Home({
       { section: navItemTitles.Contact, ref: contactRef },
       { section: sections.IntroHeading, ref: introHeadingRef },
     ],
-    []
+    [],
   );
 
   return (
@@ -86,7 +86,8 @@ export const getStaticProps: GetStaticProps<{
   posts: BlogPostType[];
   workInfo: Record<string, WorkplaceType>;
 }> = async () => {
-  const posts = await fetchPosts();
+  const postNodes = await fetchPosts();
+  const posts = postNodes.map((post) => post.node);
 
   const workplacesFile = fs.readFileSync("./src/data/work.yaml", "utf-8");
   const workInfo: Record<string, WorkplaceType> = yaml.parse(workplacesFile);

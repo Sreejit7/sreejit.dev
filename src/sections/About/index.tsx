@@ -21,8 +21,8 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
     const [highlightedWorkPlaceIndex, setHighlightedWorkPlaceIndex] =
       useState(0);
 
-    const [workplaceDescList, setWorkplaceDescList] = useState<string[]>(
-      Object.values(workInfo).map((work) => work.desc)
+    const [workplaceDescList, _] = useState<string[]>(
+      Object.values(workInfo).map((work) => work.desc),
     );
 
     return (
@@ -36,7 +36,7 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
               <span
                 className={cn(
                   styles["about-text"],
-                  sectionStyles["section-text"]
+                  sectionStyles["section-text"],
                 )}
               >
                 Hello, my name is Sreejit De. I &apos;m a{" "}
@@ -51,7 +51,7 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
                 <a
                   className={cn(
                     styles["about-text-highlight"],
-                    sectionStyles["section-text-highlight"]
+                    sectionStyles["section-text-highlight"],
                   )}
                   target="_blank"
                   rel="noreferrer"
@@ -59,13 +59,13 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
                 >
                   tech blog
                 </a>{" "}
-                regularly.
+                sometimes.
               </span>
 
               <span
                 className={cn(
                   styles["about-text"],
-                  sectionStyles["section-text"]
+                  sectionStyles["section-text"],
                 )}
               >
                 I’m an avid sports fan - from Football to F1!
@@ -87,7 +87,7 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
               className={cn(
                 "flex",
                 "flex-wrap",
-                styles["about-workplaces-list"]
+                styles["about-workplaces-list"],
               )}
             >
               {Object.entries(workInfo).map(([name, info], index) => (
@@ -121,7 +121,7 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
         </section>
       </Layout>
     );
-  }
+  },
 );
 
 About.displayName = "About";
