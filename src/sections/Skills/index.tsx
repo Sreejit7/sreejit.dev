@@ -53,8 +53,8 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
             className={cn(sectionStyles["section-text"], styles["skills-text"])}
           >
             Being a developer is to be always learning and evolving constantly.
-            Currently while building things for the web, I’m working on and
-            learning these technologies and trying to grasp a few others like{" "}
+            Currently while building fast and scalable systems, I’m working on
+            and learning a few other technologies like{" "}
             <a
               href="https://nodejs.org/en/"
               target="_blank"
