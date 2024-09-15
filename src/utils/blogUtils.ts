@@ -1,7 +1,7 @@
-import { BlogPostType, query } from "../data/blogQuery";
+import { BlogPostNode, query } from "../data/blogQuery";
 
-export const fetchPosts = async (): Promise<BlogPostType[]> => {
-  const response = await fetch("https://api.hashnode.com", {
+export const fetchPosts = async (): Promise<BlogPostNode[]> => {
+  const response = await fetch("https://gql.hashnode.com", {
     method: "POST",
     headers: {
       "Content-type": "application/json",
@@ -12,6 +12,5 @@ export const fetchPosts = async (): Promise<BlogPostType[]> => {
   });
   const ApiResponse = await response.json();
 
-  // Return only latest 3 posts
-  return ApiResponse.data.user.publication.posts.slice(0, 3);
+  return ApiResponse.data.publication.posts.edges;
 };

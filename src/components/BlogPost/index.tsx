@@ -34,7 +34,7 @@ const BlogPost = (blogPost: BlogPostType) => {
       <article className={styles.blogpost}>
         <Image
           alt={title}
-          src={coverImage}
+          src={coverImage.url}
           height={180}
           width={350}
           className={styles["blogpost-image"]}

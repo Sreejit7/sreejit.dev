@@ -1,10 +1,10 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import cn from "classnames";
 
 import { WorkplaceType } from "./types";
 import styles from "./workplace.module.scss";
-import { useState } from "react";
-import cn from "classnames";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 interface WorkplacePropsType {
@@ -44,10 +44,13 @@ const Workplace = ({
         layout="intrinsic"
         alt={name}
       />
+
+      {/* This is a small motion component */}
+
       <motion.small
         className={cn(
           styles.timeline,
-          highlighted && styles["timeline-highlighted"]
+          highlighted && styles["timeline-highlighted"],
         )}
       >
         {timeline}

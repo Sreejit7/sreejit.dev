@@ -2,10 +2,11 @@ import {
   SiReact,
   SiRedux,
   SiTypescript,
-  SiFirebase,
   SiGit,
   SiNextdotjs,
   SiAngular,
+  SiGo,
+  SiTailwindcss,
 } from "react-icons/si";
 import { FaSass } from "react-icons/fa";
 
@@ -26,6 +27,11 @@ export const skills = [
     color: "#fff",
   },
   {
+    title: "Golang",
+    icon: <SiGo />,
+    color: "#fff",
+  },
+  {
     title: "Angular",
     icon: <SiAngular />,
     color: "#fff",
@@ -36,13 +42,13 @@ export const skills = [
     color: "#fff",
   },
   {
-    title: "Sass",
-    icon: <FaSass />,
+    title: "Tailwind CSS",
+    icon: <SiTailwindcss />,
     color: "#fff",
   },
   {
-    title: "Firebase",
-    icon: <SiFirebase />,
+    title: "Sass",
+    icon: <FaSass />,
     color: "#fff",
   },
   {

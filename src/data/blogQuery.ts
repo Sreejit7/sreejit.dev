@@ -1,21 +1,31 @@
 export const query = `
-    {
-      user(username: "Sreejit7") {
-        publication {
-          posts{
-            slug
-            title
+  query {
+  publication(host: "blog.sreejit.dev") {
+      posts(first: 3) {
+        edges {
+          node {
             brief
-            coverImage
+            title
+            slug
+            coverImage {
+              url
+            }
           }
         }
       }
     }
+  }
   `;
 
-export type BlogPostType = {
+export interface BlogPostType {
   brief: string;
-  coverImage: string;
+  coverImage: {
+    url: string;
+  };
   slug: string;
   title: string;
+}
+
+export interface BlogPostNode {
+  node: BlogPostType;
 }
