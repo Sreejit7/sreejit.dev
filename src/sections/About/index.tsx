@@ -43,10 +43,10 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
                 <span className={cn(styles["about-text-highlight"])}>
                   Software Engineer
                 </span>{" "}
-                based in India, passionate about building things for the web. I
-                love learning new technologies &amp; getting my hands dirty
-                playing around with them. I &apos;m sharing my journey &amp;
-                learnings on my
+                based in India, passionate about building websites and fast,
+                scalable systems. I love learning new technologies &amp; getting
+                my hands dirty playing around with them. I &apos;m sharing my
+                journey &amp; learnings on my
                 {"  "}
                 <a
                   className={cn(
@@ -69,6 +69,15 @@ const About = React.forwardRef<HTMLElement, AboutPropsType>(
                 )}
               >
                 I’m an avid sports fan - from Football to F1!
+              </span>
+              <span
+                className={cn(
+                  styles["about-text"],
+                  sectionStyles["section-text"],
+                )}
+              >
+                My coping mechanism during tough times at work is to make a meme
+                about the situation and laugh it out.
               </span>
             </section>
             <section className={styles["about-right"]}>
