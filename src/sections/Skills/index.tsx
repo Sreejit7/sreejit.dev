@@ -63,15 +63,7 @@ const Skills = forwardRef<HTMLElement>((props, ref) => {
             >
               Node JS
             </a>
-            ,{" "}
-            <a
-              href="https://www.postgresql.org/"
-              target="_blank"
-              rel="noreferrer"
-              className={sectionStyles["section-text-highlight"]}
-            >
-              PostgreSQL
-            </a>{" "}
+            ,{" "} 
             etc.
           </span>
           <ul className={styles["skills-list"]}>
