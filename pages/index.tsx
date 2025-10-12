@@ -94,6 +94,5 @@ export const getStaticProps: GetStaticProps<{
 
   return {
     props: { posts, workInfo },
-    revalidate: 1800,
   };
 };
