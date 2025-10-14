@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ["cdn.hashnode.com", "media.graphassets.com"],
+    domains: ["cdn.hashnode.com", "media.graphassets.com", "ap-south-1.graphassets.com"],
   },
   env: {
     GRAPHCMS_PROJECTS_ENDPOINT: process.env.GRAPHCMS_PROJECTS_ENDPOINT,

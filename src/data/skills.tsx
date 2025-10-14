@@ -7,6 +7,7 @@ import {
   SiAngular,
   SiGo,
   SiTailwindcss,
+  SiPostgresql
 } from "react-icons/si";
 import { FaSass } from "react-icons/fa";
 
@@ -29,6 +30,11 @@ export const skills = [
   {
     title: "Golang",
     icon: <SiGo />,
+    color: "#fff",
+  },
+  {
+    title: "PostgreSQL",
+    icon: <SiPostgresql />,
     color: "#fff",
   },
   {
